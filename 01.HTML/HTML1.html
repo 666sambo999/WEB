@@ -2,11 +2,16 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title> Logical descriptors</title>
     <<link rel="icon" href="app.ico" type="image/x-icon">
 </head>
 <body>
+    <menu label="Tablo">
+        <menuitem> Item1</menuitem>
+        <menuitem> Item2</menuitem>
+        <menuitem> Item3</menuitem>
+    </menu>
     <h1> Дескрипторы логического форматирования</h1>
     <!-- Дескрипторы логического форматирования
 
@@ -38,14 +43,14 @@
         <cite> Цитаты великих людей</cite> <br>
         Цикл <strong> <tt> for</tt></strong>пишется следующим образом:
         <pre>
-        <code>
-                     for(int i=o; i < n; i++)
+                    <code>
+                     for(int i=o; i &lt; n; i++)
                      {
                         .........;
                         group-of-statemens;
                         .........;
                      }
-                 </code>
+                    </code>
              </pre>
 
     </p>
@@ -53,7 +58,7 @@
         <pre>
         <samp>
                 Повтор
-                for(int i=o; i < n; i++)
+                for(int i=o; i &lt; n; i++)
                 {
                     .........;
                     group-of-statemens;
@@ -72,6 +77,34 @@
         <!--<img src="star.ico" />-->
         <a href="starwars.com" target="_blank"><img src="star.ico" alt="Star Wars" 
                                                     align="right"/></a>
+        Список: маркированный и нумерованный.<br />
+        Нумарованный список помещется в парный дескриптор 
+        <strong>&#60;ol&#62;</strong> что означает <em> List Item</em>(сортированный списов)<br />
+        Маркированный список помещатся в парный декриптор 
+        <strong>&lt;ul&gt;</strong> &ndash; <em>Undered List </em>(несортированный список)
+    </p>
+    <h3 contextmenu="Meny-1">Маркерованный список</h3>
+    <ul type="disk">
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+    </ul>
+    <h3>Нумерованный список</h3>
+    <ol>
+        <li>Item1</li>
+        <li>Item2:
+            <ul type="disk">
+                <li>Item1-1</li>
+                <li>Item2-2</li>
+            </ul>
+        
+        </li>
+        <li>Item3</li>
+    </ol>
+    <h2>
+        Глобальные атрибуты...........
+        </h2>
+    <p>
 
     </p>
 </body>
