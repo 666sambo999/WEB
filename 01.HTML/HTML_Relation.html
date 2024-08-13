@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title> Отношение между дескрипторами</title>
+    <style>
+        body{
+            font-family:Arial;
+            font-size:44px;
+        }
+        p>b{
+            color:blueviolet;
+        }
+        b>u{
+            color:green !important;
+        }
+        p u{
+            color:goldenrod;
+        }
+        em+span{
+            color:aqua;
+        }
+        em~strong{
+            color:chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        T<b>E<u>X</u><i>T</i></b>
+
+    </p>
+    <p>
+         T<em>E</em><span>X</span><strong>T</strong>2
+            
+    </p>
+</body>
+</html>

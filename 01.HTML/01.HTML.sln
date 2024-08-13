@@ -6,12 +6,16 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B350B39A-CD3C-4453-895D-E90C84B3A8F7}"
 	ProjectSection(SolutionItems) = preProject
 		DZ.html = DZ.html
+		fonts.css = fonts.css
 		HTML1.html = HTML1.html
 		HTMLCSS.html = HTMLCSS.html
 		HTMLData.html = HTMLData.html
+		HTMLKorabl.html = HTMLKorabl.html
 		HTMLPageList.html = HTMLPageList.html
 		HTMLStyle.html = HTMLStyle.html
+		HTML_Relation.html = HTML_Relation.html
 		index.html = index.html
+		StyleCSS.css = StyleCSS.css
 	EndProjectSection
 EndProject
 Global

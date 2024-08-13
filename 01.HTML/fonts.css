@@ -1,0 +1,21 @@
+﻿body
+{
+}
+<style> @import url ('https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap');
+</style>
+
+.grey-qo-regular {
+    font-family: "Grey Qo", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+<link rel ="preconnect" href="https://fonts.googleapis.com" >
+<link rel ="preconnect" href="https://fonts.gstatic.com" crossorigin >
+<link href ="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" >
+.inter-<uniquifier > {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
