@@ -1,0 +1,20 @@
+﻿body
+{
+    background-color:coral;
+}
+ul {
+    color: red;
+    list-style-type: circle;
+    /*list-style-image: url(Death_Star.ico);*/
+    list-style-image: url(Star_Destroyer.png);
+    list-style-position:inside;
+}
+ol{
+    color:aqua;
+    list-style-type:ethiopic-numeric;
+    list-style-image:none;
+}
+.star_wars {
+    /*list-style-image: url(Death_Star.ico);*/
+    list-style-image: url(darth-vader.svg);
+}
