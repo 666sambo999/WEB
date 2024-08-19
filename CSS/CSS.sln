@@ -6,11 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D370650E-D6B4-48E9-A90C-8EF0745098CE}"
 	ProjectSection(SolutionItems) = preProject
 		HTMLPage1.html = HTMLPage1.html
+		HTML_Forms.html = HTML_Forms.html
+		HTML_Image.html = HTML_Image.html
+		HTML_Mendeleev.html = HTML_Mendeleev.html
 		HTML_Ram.html = HTML_Ram.html
 		HTML_table.html = HTML_table.html
 		style.css = style.css
 		StyleSheet.css = StyleSheet.css
-		HTML_Image.html = HTML_Image.html
 	EndProjectSection
 EndProject
 Global

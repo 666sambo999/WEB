@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Регистрация</title>
+</head>
+<body>
+    <form action="#file.php" method="dialog">
+        <p> <input type="text" placeholder="Введите имя" name="login" size="20" maxlength="20"> 
+        </p>    
+        <p> <input type="password" placeholder="Введите пароль" name="password"> </p>    
+        <p> Дата рождения:<br /><input type="date" name="date"> </p>    
+        <p> <input type="tel" placeholder="введите номер телефона" name="phone" pattern="+7([0-9]{3})-[0-9]{3}-[0-9]{2}-[0-9]{2}"> </p>    
+        <p> <input type="email" placeholder="введите адрес почты" name="email"> </p>    
+        <p> <input type="image" placeholder="картину" name="img"> </p>    
+        <p> <input type="file" placeholder="загрузите фото" name="photo"> </p>    
+        <p> ваш любимый цвет: <input type="color"  name="color"> </p>    
+        <p>
+            отпуск: <input type="week" name="week"> <br />
+            куда отпуск: <input type="search" name="search" /><br />
+            оценка: <input type="range" name="range"/>
+        </p>    
+        
+        
+        <p><textarea placeholder="Пару слов о себе" maxlength="150"></textarea></p>
+        <h2>Какие языки Вы знаете?</h2>
+        <fieldset style="width:200px">
+            <legend>Какие языки Вы знаете?</legend>
+            <p>
+                <input type="checkbox" id="Rus" checked><label for="Rus">Russia</label> <br>
+                <input type="checkbox" id="eng"><label for="eng">Englich</label> <br>
+                <input type="checkbox" id="deu"><label for="deu">Deutsche</label> <br>
+                <input type="checkbox" id="ita"><label for="ita">Italiano</label> <br>
+                <input type="checkbox" id="esp"><label for="esp">испанский</label> <br>
+            </p>
+        </fieldset>
+        <fieldset style="width:400px">
+            <legend>Выберите форму обучения</legend>
+            <input type="radio" id="stacionar" name="form"> <label for="stacionar">Стационар</label> 
+            <input type="radio" id="distance" name="form"><label for="distance">Заочно</label> 
+            <input type="radio" id="yearestar" name="form"><label for="yearestar">Годичный курс</label> 
+        </fieldset>
+        <p>
+            <select>
+                <option disabled selected>Выберите форму обучения</option>
+                <option>РПО</option>
+                <option>С++</option>
+                <option>Сети</option>
+            </select>
+        </p>
+        <p>
+            <select size="8">
+                <option disabled selected>Выберите дни недели</option>
+                <option>пн</option>
+                <option>вт</option>
+                <option>ср</option>
+                <option>чт</option>
+                <option>пт</option>
+                <option>сб</option>
+                <option>вс</option>
+            </select>
+        </p>
+
+
+        <p><input type="reset"> <input type="submit"></p>
+    </form>
+</body>
+</html>

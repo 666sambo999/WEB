@@ -1,0 +1,20 @@
+﻿body {
+    background-color:cadetblue;
+}
+table {
+    
+    background-color:aliceblue;
+    font-family: Arial;
+    font-size: 11pt;
+    width:950px;
+    border-collapse: collapse;
+    
+}
+table tr, table td {
+        border-style: solid;
+        text-align: center;
+        width: 35px;
+        height: 20px;
+}
+
+
