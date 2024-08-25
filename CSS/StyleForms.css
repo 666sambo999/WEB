@@ -1,0 +1,24 @@
+﻿body
+{
+    border-image:auto;
+}
+fieldset{
+    width:300px;
+}
+input[type=text]{
+    background-color:aqua;
+    color:green;
+}
+input[type=checkbox]{
+    background-color:gold;
+}
+.EULA{
+    width:500px;
+    height:500px;
+    border:solid 2px;
+/*    загнать текст в рамку
+*/    overflow:auto;
+      font-family:'Franklin Gothic Book';
+      font-size:12pt;
+      padding: 10px;
+}
