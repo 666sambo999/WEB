@@ -1,0 +1,31 @@
+﻿body
+{
+}
+.main_windows{
+/*    border: solid 1px;
+*/    
+    position:relative;
+    width:400px;
+    height:400px;
+    top: 200px;
+    left:400px;
+    background:silver;
+}
+.title{
+    width:400px;
+    height:20px;
+    background:blue;
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+}
+min_button{
+    width:25px;
+    height:20px;
+}
+.control_button{
+    width:22px;
+    height:20px;
+
+}

@@ -1,0 +1,21 @@
+﻿body
+{
+}
+.logo {
+    position:absolute;
+    border:solid 3px;
+    float:left;
+    top:50px;
+    width:300px;
+    
+}
+.header{
+    position:sticky;
+    top:auto;
+    background:silver;
+    top:20px;
+}
+.parent {
+    position:relative;
+    background: green;
+}
