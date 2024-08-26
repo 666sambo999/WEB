@@ -9,12 +9,24 @@
 <body>
     <div class="main_windows">
         <div class="title">
-            <input type="button" class="control_button"/>
-            <button><img src="img/min_button.png"/></button>
+            <div class="left_title">
+                <img src="icons.png" id="icon"/>
+                <h4>- Калькулятор</h4>
+            </div>
+            <div class="right_title">
+            <!--<input type="button" class="control_button"/>-->
+            <!--<button><img src="img/min_button.png"/></button>
             <button><img src="img/max_button.png"/></button>
-            <button><img src="img/close_button.png"/></button>
+            <button><img src="img/close_button.png"/></button>-->
+            <input class="control_button" type="image" src="img/min_button.png" />
+            <input class="control_button" type="image" src="img/max_button.png" />
+            <input class="control_button" id="close_button" type="image" src="img/close_button.png" />
+            </div>
         </div>
-       
+        <div class="menu_bar">
+            <input type="button" value="Правка" class="menu_bar_button"/>
+        </div>
     </div>
+
 </body>
 </html>
