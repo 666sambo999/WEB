@@ -1,23 +1,27 @@
-﻿body
-{
+﻿body {
+    background-image: url(mortalvs.jpg);
 }
 .main_windows {
     border: solid 2px blue;
     position: relative;
-    width: 400px;
-    height: 400px;
-    top: 200px;
+    width: 370px;
+    height: 340px;
+    top: 100px;
     left: 300px;
     background: silver;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
+    
+    display:flex;
+    flex-direction:column;
 }
 .title{
-    width:400px;
+/*    width:400px;
     height:30px;
-/*    background-color: rgb(0, 96, 255);*/    
+*//*    background-color: rgb(0, 96, 255);*/    
     background:linear-gradient(rgb(0,73,225),rgb(0,101,255));
-    position:absolute;
+/*    position:absolute;
+*/   
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -34,7 +38,7 @@
     display:flex;
     align-items:center;
     height:28px;
-    justify-content:flex-start;
+    
     margin-left:3px;
     position:relative;
 }
@@ -49,18 +53,109 @@ min_button{
 .control_button{
     width:22px;
     height:20px;
-    /*margin:1px;*/
+    margin:1px;
 }
 #close_button{
     margin-right:3px;
 }
 .menu_bar{
-    border-bottom: solid 1px white;
-    position:absolute;
-    width:400px;
+/*    position:absolute;
+*//*    width:400px;
     height:20px;
     top:28px;
+*/    border-bottom: solid 1px white;
 }
-.menu_bar_button{
-    border:0;
+.menu_bar_button {
+    border: 0;
+    background: rgb(236,233,216);
+    border: solid 1px rgb(236,233,216);
+}
+.menu_bar_button:hover{
+    background:rgb(246,244,236);
+    border: solid 1px rgb(150, 150, 150);
+}
+.workspace{
+    /*position:absolute;
+    top:48px;
+    width:400px;
+    height:252px;*/
+    border:solid 1px;
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    grid-template-rows:repeat(5,1fr);
+/*    gap:10px*/    
+    padding:2px 10px 10px 10px;
+    column-gap:10px;
+    row-gap:8px;
+}
+.edit_control{
+    /*position:absolute;
+    top:5px;
+    left:8px;
+    width:382px;
+    height:28px;*/
+    
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px;
+    grid-column:1/7;
+    grid-row:1;
+}
+.memory_button{
+    grid-column:1;
+    grid-row:3/6;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+    
+    padding-top:3px;
+}
+.clear{
+    grid-column:1/7;
+    grid-row:2;
+    display:flex;
+    justify-content:space-between;
+    padding:4px;
+}
+.digit_control {
+    grid-column: 2/7;
+    grid-row: 3/7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:4px;
+    margin:1px;
+}
+input[type=text]
+{
+    width:100%;
+}
+div{
+/*    border:solid 1px black;
+*/}
+.empty{
+    border:inset 1px;
+    width:36px;
+    height:36px;
+    box-shadow:inset 1px 1px 2px grey;
+    margin-right:20px;
+}
+.memory_button input[type=button]{
+    width:44px;
+    height:37px;
+    color:red;
+}
+.clear input[type=button]{
+    width:90px;
+    height:30px;
+   
+}
+.digit_control input[type=button] {
+    width:48px;
+    height:37px;
+    color:red;
+    margin:1px;
+    padding-right:4px;
 }
