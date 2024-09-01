@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> Homework </title>
+</head>
+<body>
+    <script>
+        //Факториал
+        //let n = prompt("Введите число: ");
+        //function factorial(n)
+        //{
+        //    let ans = 1;
+        //    if (n < 0) {
+        //        return "number has to be positive";
+        //    }
+        //    for (let i = 2; i <= n; i++)
+        //        ans = ans * i;
+        //    return ans;
+        //}
+        //console.log(factorial(n));
+
+        //let fact = 1;
+        //for (let i = 1; i <= n; i++)fact = fac * i;
+        //console.log(`${fact}`);
+
+        //// Палиндром
+        //let n = prompt("Введите числа для проверки на палиндром: ");
+        //if (n.toString().split("").reverse().join("") == n.toString()) {
+        //    console.log("Это палиндром");
+        //}
+        //else {
+        //    console.log("Это не палиндром");
+        //}
+
+        // Степень
+        let n = prompt("Введите число основание степени: ");
+        let i = prompt("Введите число для возведения в степень: ");
+        let N=1;
+        if (i == 0) {
+            console.log("1");
+        }
+        else {
+            for (let i = 0; i < n; i++) N = N* n;
+        }
+        console.log(N);
+    </script>
+</body>
+</html>
