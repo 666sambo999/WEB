@@ -8,75 +8,86 @@
 <body>
     <script>
         //Факториал
-        let n = prompt("Введите число: ");
-        function factorial(n)
-        {
-            let ans = 1;
-            if (n < 0) {
-                return "number has to be positive";
-            }
-            for (let i = 2; i <= n; i++)
-                ans = ans * i;
-            return ans;
-        }
-        console.log(factorial(n));
+        //let n = prompt("Введите число: ");
+        //function factorial(n)
+        //{
+        //    let ans = 1;
+        //    if (n < 0) {
+        //        return "number has to be positive";
+        //    }
+        //    for (let i = 2; i <= n; i++)
+        //        ans = ans * i;
+        //    return ans;
+        //}
+        //console.log(factorial(n));
 
-        let fact = 1;
-        for (let i = 1; i <= n; i++)fact = fac * i;
-        console.log(`${fact}`);
+        //let fact = 1;
+        //for (let i = 1; i <= n; i++)fact = fac * i;
+        //console.log(`${fact}`);
 
         //// Палиндром
-        let n = prompt("Введите числа для проверки на палиндром: ");
-        if (n.toString().split("").reverse().join("") == n.toString()) {
-            console.log("Это палиндром");
-        }
-        else {
-            console.log("Это не палиндром");
-        }
+        //let n = prompt("Введите числа для проверки на палиндром: ");
+        //if (n.toString().split("").reverse().join("") == n.toString()) {
+        //    console.log("Это палиндром");
+        //}
+        //else {
+        //    console.log("Это не палиндром");
+        //}
 
         // Степень
-        let n = prompt("Введите число основание степени: ");
-        let i = prompt("Введите число для возведения в степень: ");
-        let N=1;
-        if (i == 0) {
-            console.log("1");
-        }
-        else {
-            for (let i = 0; i < n; i++) N = N* n;
-        }
-        console.log(N);
+        //let n = prompt("Введите число основание степени: ");
+        //let i = prompt("Введите число для возведения в степень: ");
+        //let N=1;
+        //if (i == 0) {
+        //    console.log("1");
+        //}
+        //else {
+        //    for (let i = 0; i < n; i++) N = N* n;
+        //}
+        //console.log(N);
 
         //Фибоначчи + ряд чисел
-        let n = prompt("Введите число: ");
-        for (let a = 0, b = 1, c = a + b; a <= n; a = b, b = c, c = a + b) console.log(a);
+        //let n = prompt("Введите число: ");
+        //for (let a = 0, b = 1, c = a + b; a <= n; a = b, b = c, c = a + b) console.log(a);
 
 
-        // ряд простых чисел до указанного предела
-        let n = prompt("Введите число: ");
-        for (let i = 2; i <= n; i++) {
-            for (let j = 2; j <= i; j++) {
-                if ((i % j == 0) && (j != i)) break;
-                else {
-                    console.log(i);
-                }
-            }
-        }
+        //// ряд простых чисел до указанного предела
+        //let n = prompt("Введите число: ");
+        //for (let i = 2; i <= n; i++) {
+        //    for (let j = 2; j <= i; j++) {
+        //        if ((i % j == 0) && (j != i)) break;
+        //        else {
+        //            console.log(i);
+        //        }
+        //    }
+        //}
 
         // заданное количество простых чисел
 
-        let n = prompt("Введите число: ");
+        //let n = prompt("Введите число: ");
         
-        for (let i = 2; i <= n; i++) {
-            let simple = true;
-            for (let j = 2; j <= i; j++) {
-                if ((i % j == 0) && (j != i)) {
-                    simple = false;
-                }
+        //for (let i = 2; i <= n; i++) {
+        //    let simple = true;
+        //    for (let j = 2; j <= i; j++) {
+        //        if ((i % j == 0) && (j != i)) {
+        //            simple = false;
+        //        }
+        //    }
+        //    if (simple)
+        //    console.log(i);
+        //}
+        document.write("<table border=1 width=500>");
+        for (let i = 0; i <= 10; i++) {
+            document.write("<tr>");
+            for (let j = 1; j <= 10; j++) {
+                document.write("<td>");
+                document.write(i * j);
+                document.write("</td>");
             }
-            if (simple)
-            console.log(i);
+            document.write("</tr>");
         }
-        
+        document.write("</table>");
     </script>
+
 </body>
 </html>

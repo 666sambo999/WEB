@@ -41,9 +41,90 @@
         //document.writeln(c);
         //document.writeln(typeof c);
 
-        let i = 3;
-        let j = i++;
-        console.log(i + "\t" + j);
+        //let i = 3;
+        //let j = i++;
+        //console.log(i + "\t" + j);
+
+
+    </script>
+    
+    <!--Массивы--> 
+    <script>
+        //let arr = new Array(8);
+        //for (let i = 0; i < arr.length; i++) {
+        //    arr[i] = parseInt (Math.random() * 100);
+        //    //console.log(arr[i]);
+        //    console.table(arr[i]);
+        //}
+        //let arr2 = [2, 3, 4, 5, 6, 7, 9, 34];
+        //let arr2 = [2, 3, 4, 5, 6, 7, 9, 34,67,788];
+        ////for (let i in arr2) {
+        ////    console.log(i);
+        ////}
+        //document.write(arr2 + "<hr>");
+        //arr2[3] = 23;// добавление в массив
+        //arr2[4] = 55;
+        //arr2.push(233);
+
+        //document.write(arr2 + "<br>");
+        //document.write("Sum: " + arr2.reduce((sum, a) => sum + a, 0) + "<br>");
+        //document.write("Avg: " + arr2.reduce((sum, a) => sum + a, 0) / arr2.length + "<br>");
+        //document.write("Min" + arr2.reduce((min, a) => min > a ? a: min) + "<br>");
+        //document.write("Max" + arr2.reduce((max, a) => max < a ? a: max) + "<br>");
+
+    </script>
+
+    <script>
+        //let decimal = +prompt("Введите десятичное число: ");
+        ////debugger;
+        //document.write(decimal.toString(2)+"<br>");
+        //document.write(decimal.toString(16)+"<br>");
+        //let binary = [1];
+        //for (let i = 0; decimal; decimal = parseInt(decimal /= 2), i++) {
+        //    binary[i] = decimal % 2;
+        //}
+        //document.write(binary.reverse());
+    </script>
+    <script>// двумерные массивы
+        let arr2 =
+            [
+                [1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9,11],
+                //[true],
+            ];
+        document.write(arr2);
+        console.table(arr2);
+        let sum1 = arr2.reduce((sum, a) => sum.concat(a));
+        let sum2 = sum1.reduce((sum, a) => sum + a, 0);
+        //document.write("Sum: " + arr2.reduce((sum, a) => sum + a, 0) + "<br>");
+        document.write("Sum: " + sum2 + "<br>");
+        //document.write("Avg: " + arr2.reduce((sum, a) => sum + a, 0) / arr2.length + "<br>");
+        document.write("Avg: " + sum2 / arr2.length + "<br>");
+        document.write("Min" + arr2.reduce((min, a) => min > a ? a: min) + "<br>");
+        document.write("Max" + arr2.reduce((max, a) => max < a ? a: max) + "<br>");
+        print(arr2);
+
+
+        function print(arr2) {
+            document.write("<table width =500>");
+            for (let i = 0; i < arr2.length; i++) {
+                document.write("<td>");
+                for (let j = 0; j<arr2[i].length; j++) {
+                    document.write("<td>" + arr2[i][j] + "<td>");
+                }
+                document.write("</td>");
+            }
+            document.write("</table>");
+        }
+    </script>
+
+    <!--Функция-->
+    <script>
+        function sum(sum, value) {
+            return sum + value;
+        }
+        //document.write("Sum: " + arr2.reduce(sum,0) + "<br>");
     </script>
 </body>
 </html>
