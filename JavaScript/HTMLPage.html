@@ -85,8 +85,8 @@
         //}
         //document.write(binary.reverse());
     </script>
-    <script>// двумерные массивы
-        let arr2 =
+    <!--<script>// двумерные массивы
+        <!--let arr2 =
             [
                 [1, 2, 3],
                 [4, 5, 6],
@@ -103,28 +103,55 @@
         document.write("Avg: " + sum2 / arr2.length + "<br>");
         document.write("Min" + arr2.reduce((min, a) => min > a ? a: min) + "<br>");
         document.write("Max" + arr2.reduce((max, a) => max < a ? a: max) + "<br>");
-        print(arr2);
+        //print(arr2);
 
 
         function print(arr2) {
             document.write("<table width =500>");
             for (let i = 0; i < arr2.length; i++) {
-                document.write("<td>");
+                document.write("<tr>");
                 for (let j = 0; j<arr2[i].length; j++) {
                     document.write("<td>" + arr2[i][j] + "<td>");
                 }
-                document.write("</td>");
+                document.write("</tr>");
             }
             document.write("</table>");
         }
-    </script>
+    </script>-->
 
     <!--Функция-->
-    <script>
+    <!--<script>
         function sum(sum, value) {
             return sum + value;
         }
         //document.write("Sum: " + arr2.reduce(sum,0) + "<br>");
+    </script>-->
+    <script>
+        let expession = prompt("Введите арифметическое выражение: ");
+        document.write(expession+"=");
+        let num = expession.split(/[+\-*\/^]/);
+        console.table(num);
+        console.log(num);
+        let a = Number(num[0]);
+        let b = Number(num[1]);
+        //if (expession.indexOf('+') > 0) document.write(a + b);
+        //else if (expession.indexOf('-') > 0) document.write(a - b);
+        //else if (expession.indexOf('*') > 0) document.write(a * b);
+        //else if (expession.indexOf('/') > 0) document.write(a / b);
+        //else if (expession.indexOf('^') > 0) document.write(a ** b);
+
+        const regxp = /[+\-*\/^]/g;
+        let s = [...expession.matchAll(regxp)];
+        console.log(s[0][0]);
+        switch (s[0][0]) {
+            case '+': document.write(a + b); break;
+            case '-': document.write(a - b); break;
+            case '*': document.write(a * b); break;
+            case '/': document.write(a / b); break;
+            case '^': document.write(a ** b); break;
+        }
+
+        //document.write()
     </script>
 </body>
 </html>

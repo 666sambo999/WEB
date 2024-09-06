@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Selector & Events </title>
+    <script src="Script1.js"></script>
+</head>
+<body onload="onLoad()">
+    <div class="Factorial">
+        <input type="number" id="factorialNum" />
+        <input type="button" id="result" value="факториал" onclick="factorial()" />
+        <span id="facResult" style="text-shadow:inherit"> </span>
+    </div>
+    <div class="Element">
+        <h2 id="pbColor" onmouseover="setColor()" onmouseout="setColorOn()">
+        Изменения цвета фона</h2>
+    </div>
+    <div class="Element">
+        <input type="color" id="chooseColor" />
+        <input type="button" value="Применить" onclick="setBgColor()" />
+    </div>
+    <div>
+        <input type="color" id="chooseFgColor" />
+        <input type="button" value="Применить :)" onclick="setFgColor()" />
+    </div>
+    <div>
+        <input type="file" id="fileIm" onchange="setImage()">
+    </div>
+    <div>
+        <img src="C:\Users\андрей\Pictures\zviozdnye-voiny-mechi-5.webp" id="photo" width="500"/>
+    </div>
+</body>
+</html>
