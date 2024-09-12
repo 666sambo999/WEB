@@ -40,8 +40,9 @@ function setFgColor() {
         element[i].style.color = document.getElementById("chooseFgColor").value;
     }
 
-    let element = document.querySelectorAll("h2");
-    console.log(element);
+    let elements = document.querySelectorAll("h2");
+    console.log(elements);
+    elements.style.backgroundColor = document.querySelector("chooseFgColor").value;
 }
 
 function setImage() {// картинки 
@@ -49,4 +50,18 @@ function setImage() {// картинки
     //let filename = image;
     console.log(fileIm.files[0].name);
     document.getElementById("photo").src = fileIm.files[0].name;
+}
+function setBoald() {
+    let boald = document.getElementById("elementBoald");
+    console.log(boald);
+    let items = document.querySelectorAll("ol > li");
+    let notItems = document.querySelectorAll("li > ul");
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].style.fontWeight = boald.checked ? 900 : 100;
+    }
+    for (let i = 0; i < notItems.length; i++) {
+        notItems[i].style.fontWeight = 100; 
+    }
+    
 }
