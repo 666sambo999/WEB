@@ -7,24 +7,25 @@
     display:flex;
 }
 
-#background_switch{
-    width:24px;
-    height:24px;
-
+#background_switch {
+    width: 24px;
+    height: 24px;
+    background-size: 24px 24px;
+    transition: background-image 2s;
 }
 .ligth 
 {
     background:#D8D8D8;
     color:#323232;
 }
-.ligth #background_switch{
-    content: url("img/moon.png");
-}
+    .ligth #background_switch {
+        background-image: url("img/moon.png");
+    }
 .dark 
 {
     background: #323232;
     color: #D8D8D8;
 }
 .dark #background_switch{
-    content: url("img/sun.png");
+    background-image: url("img/sun.png");
 }

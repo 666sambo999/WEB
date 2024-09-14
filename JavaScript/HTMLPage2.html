@@ -9,16 +9,22 @@
 <body class="ligth">
     <div id="header">
         <div style="width:90%">Header;</div>
-        <img src="img/moon.png" alt="Switch background image" id="background_switch" />
+        <!--<img src="img/moon.png" alt="Switch background image" id="background_switch" />-->
+        <div id="background_switch"> </div>
     </div>
 
     <div id="coord"></div>
 
     <div style="width:246px; height:205px">
         <img src="img/DrunkMonkey.jpg" id="image"/>
-        <br />
-        <button id="btnShow" style="width:246px; height:50px" onclick="imageVisability()"> Скрыть  </button>
+      <br />
     </div>
+        <div>
+            <input type="number" id="numDelay" min="100" max="3000" style="width:123px; font-size:20px; font-family:'Bookshelf Symbol 7'"/>
+        </div>
+        <div>
+            <button id="btnShow" style="width:150px; height:50px; font-size:32px;" onclick="ImageVisabDelay()"> Скрыть  </button><br />
+        </div>
     <script type="text/javascript" src ="Script2.js"></script>
 </body>
 </html>

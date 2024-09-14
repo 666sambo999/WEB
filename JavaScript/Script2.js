@@ -37,7 +37,7 @@ document.addEventListener("mousemove", function (event) {
 );
 
 function imageVisability() {
-    document.getElementById("image")
+    let image = document.getElementById("image")
     let button = document.getElementById("btnShow");
     if (button.innerHTML === "Скрыть") {
         image.src = "img/transparent.png";
@@ -49,26 +49,21 @@ function imageVisability() {
     }
 }
 function ImageVisabDelay() {
+    let delay = document.getElementById("numDelay").value;
     setTimeout(imageVisability(), 500);
 }
-document.write("<div id='anime'> Елки - палки :-) </div>");
-let text = document.querySelector("anime").innerHTML;
-let size = text.length;
 
-window.addEventListener("load", );
+document.write("<div id='anime'> Елки - палки :-).........(-: </div>");
+let text = document.querySelector("#anime").innerHTML;
+let size = text.length;
+let i = 0;
+
+window.addEventListener("load", animText);
 
 function animText() {
     if (i >= size) return;
-    let id = document.querySelector("anime");
-    id.innerHTML = text.substring(0,i++)
+    let id = document.querySelector("#anime");
+    id.innerHTML = text.substring(0, i++)
 
-    setTimeout(addEventListener);
-
-
-
-
-
-
-
-
+    setTimeout(animText,100);
 }
