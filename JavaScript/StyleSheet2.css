@@ -29,3 +29,16 @@
 .dark #background_switch{
     background-image: url("img/sun.png");
 }
+.timers{
+    border-top:solid, 2px;
+    border-bottom: solid, 2px;
+    background-color:violet;
+
+}
+input[type=date]
+{
+    font-size:32px;
+}
+input[type=time] {
+    font-size: 32px;
+}

@@ -23,6 +23,12 @@ background_switch.onclick = function ()
     //    //document.body.style.backgroundColor = Dark;
     //    //document.body.style.color = Ligth;
     //}
+    let bacdelay = document.getElementById("btnDelay");
+    console.log(bacdelay.style);
+    let delay = bacdelay.value;
+    console.log(document.body.style);
+    document.body.style.transition = `background-color ${delay / 1000}s, color ${delay / 1000}s`;
+    document.getElementById("background_switch").style.transition = `background - image ${delay / 1000}s`;
     document.body.className = document.body.className === "ligth" ? "dark" : "ligth";
 }
 
@@ -66,4 +72,56 @@ function animText() {
     id.innerHTML = text.substring(0, i++)
 
     setTimeout(animText,100);
+}
+
+/////////////////////////////////////////////////////////////////////
+//let date = new Date();
+//let result = "Полная дата и время <br>";
+//result += `Полная дата и время: ${date}<br>`;
+//result += `Полная дата: ${date.getFullYear()}.${chekNumber(date.getMonth() + 1)}.${(chekNumber(date.getDate()))} <br>`;
+//result += `Дата: ${date.getDay()}<br>`;
+//result += `Только время: ${date.toTimeString()}<br>`;
+//document.getElementById("DateTime").innerHTML = result;
+//document.write(date);
+
+function chekNumber(i) {
+    return i < 10 ? "0"+ 1 : i; 
+}
+document.body.onload = function tic_timer()
+{
+    let time = new Date();
+    let hh = chekNumber(time.getHours());
+    let mm = chekNumber(time.getMinutes());
+    let ss = chekNumber(time.getSeconds());
+    document.getElementById("timer").innerHTML = `${hh}:${mm}:${ss}`;
+
+    let chBoxD = document.getElementById("checBoxDate").checked;
+    if (chBoxD == true) {
+        let yyyy = time.getFullYear();
+        let MM = chekNumber(time.getMonth() + 1);
+        let dd = chekNumber(time.getDate());
+        document.getElementById("date_dis").innerHTML = `${yyyy}/${MM}/${dd}`;
+    }
+    else {
+       document.getElementById("date_dis").innerHTML = "";
+    }
+    setTimeout(tic_timer, 1000);
+}
+
+////////////////////////////////////////////////////////////////////////
+//Обратный отчет
+////////////////////////////////////////////////////////////////////////
+document.getElementById("btnStart").onclick = function startCountdown()
+{
+    //DOM =document object model
+    let date = document.getElementById("target_date").valueAsDate;
+    let time = document.getElementById("target_time").valueAsDate;
+    
+    let element = document.getElementById("count_timer");
+    let p_date = document.createElement("p");
+    let p_time = document.createElement("p");
+    p_date.append(document.createTextNode(date));
+    p_time.append(document.createTextNode(time));
+    element.append(p_date);
+    element.append(p_time);
 }

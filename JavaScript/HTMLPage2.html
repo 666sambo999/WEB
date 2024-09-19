@@ -5,10 +5,13 @@
     <meta charset="utf-8" />
     <title>Day2= судный день</title>
     <link rel="stylesheet" href="StyleSheet2.css" />
+   
 </head>
 <body class="ligth">
     <div id="header">
-        <div style="width:90%">Header;</div>
+        <div style="width:80%">Header;</div>
+        <div style="width:15%"><input type="number" id="btnDelay" 
+                                      min="100" max="3000" step="100" value="500" style="text-align:right"/></div>
         <!--<img src="img/moon.png" alt="Switch background image" id="background_switch" />-->
         <div id="background_switch"> </div>
     </div>
@@ -20,11 +23,25 @@
       <br />
     </div>
         <div>
-            <input type="number" id="numDelay" min="100" max="3000" style="width:123px; font-size:20px; font-family:'Bookshelf Symbol 7'"/>
+            <input type="number" id="numDelay" step="100"; min="500" max="3000" style="width:123px; font-size:20px; font-family:'Bookshelf Symbol 7';"/>
         </div>
         <div>
             <button id="btnShow" style="width:150px; height:50px; font-size:32px;" onclick="ImageVisabDelay()"> Скрыть  </button><br />
         </div>
-    <script type="text/javascript" src ="Script2.js"></script>
+    <div id="DateTime"></div>
+    <div id="clock" class="timers">
+        <input id="checBoxDate" type="checkbox" />
+        <label for="checBoxDate">Показать дату</label>
+        <div id="timer" style="font-size:50px; text-align:center"></div>
+        <div id="date_dis" style="font-size:48px; text-align:center"></div>
+    </div>    
+    
+    <div id="count_timer" class="timers" >
+        <h3>Обратный отчет :=) </h3>
+        <input type="date" name="target_date" value="2024-09-17"/> 
+        <input type="time" name="target_time" value="16:10"/> 
+        <input type="button" name="btnStart" value="start"/>
+    </div>
+    <script type="text/javascript" src ="Script2.js" ></script>
 </body>
 </html>
