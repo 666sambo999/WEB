@@ -42,3 +42,6 @@ input[type=date]
 input[type=time] {
     font-size: 32px;
 }
+#result{
+    font-size:20px;
+}

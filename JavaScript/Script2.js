@@ -59,7 +59,7 @@ function ImageVisabDelay() {
     setTimeout(imageVisability(), 500);
 }
 
-document.write("<div id='anime'> Елки - палки :-).........(-: </div>");
+document.write("<div id='anime'> Елки - палки go:-).........(-:away </div>");
 let text = document.querySelector("#anime").innerHTML;
 let size = text.length;
 let i = 0;
@@ -78,28 +78,28 @@ function animText() {
 //let date = new Date();
 //let result = "Полная дата и время <br>";
 //result += `Полная дата и время: ${date}<br>`;
-//result += `Полная дата: ${date.getFullYear()}.${chekNumber(date.getMonth() + 1)}.${(chekNumber(date.getDate()))} <br>`;
+//result += `Полная дата: ${date.getFullYear()}.${checkNumber(date.getMonth() + 1)}.${(checkNumber(date.getDate()))} <br>`;
 //result += `Дата: ${date.getDay()}<br>`;
 //result += `Только время: ${date.toTimeString()}<br>`;
 //document.getElementById("DateTime").innerHTML = result;
 //document.write(date);
 
-function chekNumber(i) {
+function checkNumber(i) {
     return i < 10 ? "0"+ 1 : i; 
 }
 document.body.onload = function tic_timer()
 {
     let time = new Date();
-    let hh = chekNumber(time.getHours());
-    let mm = chekNumber(time.getMinutes());
-    let ss = chekNumber(time.getSeconds());
+    let hh = checkNumber(time.getHours());
+    let mm = checkNumber(time.getMinutes());
+    let ss = checkNumber(time.getSeconds());
     document.getElementById("timer").innerHTML = `${hh}:${mm}:${ss}`;
 
     let chBoxD = document.getElementById("checBoxDate").checked;
     if (chBoxD == true) {
         let yyyy = time.getFullYear();
-        let MM = chekNumber(time.getMonth() + 1);
-        let dd = chekNumber(time.getDate());
+        let MM = checkNumber(time.getMonth() + 1);
+        let dd = checkNumber(time.getDate());
         document.getElementById("date_dis").innerHTML = `${yyyy}/${MM}/${dd}`;
     }
     else {
@@ -114,14 +114,49 @@ document.body.onload = function tic_timer()
 document.getElementById("btnStart").onclick = function startCountdown()
 {
     //DOM =document object model
+    let targetDate = document.getElementById("target_date");
+    let targetTime = document.getElementById("target_time");
+    let btnStart = document.getElementById("btnStart");
+    targetDate.disabled = targetTime.disabled = !targetTime.disabled;
+    if (btnStart.value == "Start")
+    {
+        btnStart.value = "Stop";
+        tickCountDown();
+    }
+    else
+    {
+        btnStart.value = "Start";
+    }
     let date = document.getElementById("target_date").valueAsDate;
     let time = document.getElementById("target_time").valueAsDate;
-    
-    let element = document.getElementById("count_timer");
-    let p_date = document.createElement("p");
-    let p_time = document.createElement("p");
-    p_date.append(document.createTextNode(date));
-    p_time.append(document.createTextNode(time));
-    element.append(p_date);
-    element.append(p_time);
+    let result = `Дата: ${date.getFullYear()}.${checkNumber(date.getMonth() + 1)}.${checkNumber(date.getDate())} <br>`;
+    result += `Время: ${checkNumber(time.getHours())}:${checkNumber(time.getMinutes())}:${checkNumber(time.getSeconds())}`;
+    document.getElementById("result").innerHTML = result;
+
+    //let element = document.getElementById("count_timer");
+    //let p_date = document.createElement("p");
+    //let p_time = document.createElement("p");
+    //p_date.append(document.createTextNode(date));
+    ////p_date.append(document.createTextNode(`Дата: ${date}`));
+    ////p_time.append(document.createTextNode(`Время:${time}`));
+    //p_date.append(document.createTextNode(`Дата: ${date.getFullYear()}/${checkNumber(date.getMonth()+1)}/${checkNumber(date.getDate())}`));
+    //p_time.append(document.createTextNode(`Время:${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`));//p_time.append(document.createTextNode(time));
+    //element.append(p_date);
+    //element.append(p_time);
+}
+
+function tickCountDown()
+{
+    if (!document.getElementById("target_time").disabled) return;
+    let now = new Date();
+    let targetTimeControl = document.getElementById("target_time");
+    let targetTime = targetTimeControl.valueAsDate;
+    //targetTime.setDate(now.toDateString());
+    let duration = targetTime;
+    duration.setFullYear(now.getFullYear());
+    duration.setMonth(now.getMonth());
+    duration.setDate(now.getTime());
+    document.getElementById("result").innerHTML = duration + "<br>" + now;
+    document.getElementById("result").innerHTML = now.toDateString();
+    if (duration>0) setTimeout(tickCountDown, 1000);
 }
