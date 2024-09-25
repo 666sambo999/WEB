@@ -127,11 +127,11 @@ document.getElementById("btnStart").onclick = function startCountdown()
     {
         btnStart.value = "Start";
     }
-    let date = document.getElementById("target_date").valueAsDate;
-    let time = document.getElementById("target_time").valueAsDate;
-    let result = `Дата: ${date.getFullYear()}.${checkNumber(date.getMonth() + 1)}.${checkNumber(date.getDate())} <br>`;
-    result += `Время: ${checkNumber(time.getHours())}:${checkNumber(time.getMinutes())}:${checkNumber(time.getSeconds())}`;
-    document.getElementById("result").innerHTML = result;
+    //let date = document.getElementById("target_date").valueAsDate;
+    //let time = document.getElementById("target_time").valueAsDate;
+    //let result = `Дата: ${date.getFullYear()}.${checkNumber(date.getMonth() + 1)}.${checkNumber(date.getDate())} <br>`;
+    //result += `Время: ${checkNumber(time.getHours())}:${checkNumber(time.getMinutes())}:${checkNumber(time.getSeconds())}`;
+    //document.getElementById("result").innerHTML = result;
 
     //let element = document.getElementById("count_timer");
     //let p_date = document.createElement("p");
@@ -149,14 +149,24 @@ function tickCountDown()
 {
     if (!document.getElementById("target_time").disabled) return;
     let now = new Date();
+    let targetDateControl = document.getElementById("target_date");
     let targetTimeControl = document.getElementById("target_time");
+    let targetDate = targetDateControl.valueAsDate;
     let targetTime = targetTimeControl.valueAsDate;
+    targetDate.setHours(targetDate.getHours() + targetDate.getTimezoneOffset() / 60);
+    document.getElementById("target_date").innerHTML = targetDate.toDateString();
     //targetTime.setDate(now.toDateString());
+    targetTime.setFullYear(now.getFullYear());
+    targetTime.setMonth(now.getMonth());
+    targetTime.setDate(now.getDate());
+    targetTime.setHours(targetTime.getHours() + (targetTime.getTimezoneOffset()/60)-1);
+    document.getElementById("targetTimeValue").innerHTML = targetTime;
     let duration = targetTime;
-    duration.setFullYear(now.getFullYear());
-    duration.setMonth(now.getMonth());
-    duration.setDate(now.getTime());
     document.getElementById("result").innerHTML = duration + "<br>" + now;
-    document.getElementById("result").innerHTML = now.toDateString();
-    if (duration>0) setTimeout(tickCountDown, 1000);
+    let timestamp = targetTime - now;
+    console.log(timestamp);
+    let time_offset = new Date(timestamp);
+    time_offset.setHours(time_offset.getHours() + time_offset.getTimezoneOffset() / 60);
+    document.getElementById("result").innerHTML = time_offset.toTimeString();
+    if (duration > 0) setTimeout(tickCountDown, 1000);
 }
