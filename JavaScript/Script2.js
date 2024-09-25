@@ -156,9 +156,9 @@ function tickCountDown()
     targetDate.setHours(targetDate.getHours() + targetDate.getTimezoneOffset() / 60);
     document.getElementById("target_date").innerHTML = targetDate.toDateString();
     //targetTime.setDate(now.toDateString());
-    targetTime.setFullYear(now.getFullYear());
-    targetTime.setMonth(now.getMonth());
-    targetTime.setDate(now.getDate());
+    targetTime.setFullYear(targetDate.getFullYear());
+    targetTime.setMonth(targetDate.getMonth());
+    targetTime.setDate(targetDate.getDate());
     targetTime.setHours(targetTime.getHours() + (targetTime.getTimezoneOffset()/60)-1);
     document.getElementById("targetTimeValue").innerHTML = targetTime;
     let duration = targetTime;
@@ -166,7 +166,18 @@ function tickCountDown()
     let timestamp = targetTime - now;
     console.log(timestamp);
     let time_offset = new Date(timestamp);
+    let time_left = "";
+    if (time_offset.getFullYear() - now.getFullYear() > 0) {
+        time_left = `${time_offset.getFullYear()} лет,`
+    }
+    if (time_offset.getMonth() > 0) {
+        time_left += `${checkNumber(time_offset.getMonth())} месяцев,`;
+    }
+    if (time_offset.getDate() > 0) {
+        time_left += `${checkNumber(time_offset.getDate())} дней,`;
+    }
+    time_left += `${checkNumber(time_offset.getHours())}:${checkNumber(time_offset.getMinutes())}:${checkNumber(time_offset.getSeconds())};`;
     time_offset.setHours(time_offset.getHours() + time_offset.getTimezoneOffset() / 60);
-    document.getElementById("result").innerHTML = time_offset.toTimeString();
+    document.getElementById("result").innerHTML = time_left;
     if (duration > 0) setTimeout(tickCountDown, 1000);
 }
