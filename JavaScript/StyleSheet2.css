@@ -45,3 +45,59 @@ input[type=time] {
 #result{
     font-size:20px;
 }
+display {
+    border: solid, 1px;
+    margin: 10px;
+    padding: 10px;
+    /*width:256px;*/
+    font-size: 32px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.time_block {
+    border: solid, 3px;
+    border-radius: 10px;
+    display: block;
+}
+
+.time_unit {
+    font-family: E1234;
+    /*font-family:'Terminator';*/
+    /*font-family:DigitalDream;*/
+    font-size: 48px;
+    color: rgb(200, 0,0);
+    width: 148px;
+    height: 148px;
+    background-color: Highlight;
+    /*border-top-left-radius:5px;
+	border-top-right-radius:5px;*/
+    /*text-align:center;*/
+    display: flex;
+    justify-content: center; /*выравнивание по горизонтали*/
+    align-items: center; /*выравнивание по вертикали*/
+}
+
+.time_marker {
+    border: solid, 1px;
+    background-color: darkred;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@font-face {
+    font-family: E1234;
+    src: url('fonts/E1234.ttf');
+}
+
+@font-face {
+    font-family: Terminator;
+    src: url('fonts/TERMINAT.ttf');
+}
+
+@font-face {
+    font-family: DigitalDream;
+    src: url('fonts/DIGITALDREAMFAT.ttf');
+}
