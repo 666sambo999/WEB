@@ -1,13 +1,13 @@
-// JavaScript source code
-console.log(document.body.innerHTML);
+п»ї// JavaScript source code
+//console.log(document.body.innerHTML);
 let headers = document.body.getElementsByTagName("h1");
 let paragraph = document.createElement("p");
-paragraph.innerHTML = `Это <strong>${headers[0].innerHTML} &ndash; Объектная модель документа</strong>, детка.` +
-	`Этот абзац добавлен функцией <code><strong>append()</strong></code>.`;
-//document.body.append(paragraph);	//Добавляет объект в самый конец ноды, а именно, добавляет элемент перед закрывающим дестриптором.
-//document.body.prepend(paragraph);	//Добавляет объект в начало ноды, а именно, добавляет элемент после открывающего дескриптора.
-//document.body.before(paragraph);	//Добавляет объект перед открывающим дескриптором.
-//document.body.after(paragraph);	//Добавляет объект после закрывающего дескриптора.
+paragraph.innerHTML = `Р­С‚Рѕ <strong>${headers[0].innerHTML} &ndash; РћР±СЉРµРєС‚РЅР°СЏ РјРѕРґРµР»СЊ РґРѕРєСѓРјРµРЅС‚Р°</strong>, РґРµС‚РєР°.` +
+	`Р­С‚РѕС‚ Р°Р±Р·Р°С† РґРѕР±Р°РІР»РµРЅ С„СѓРЅРєС†РёРµР№ <code><strong>append()</strong></code>.`;
+//document.body.append(paragraph);	//Р”РѕР±Р°РІР»СЏРµС‚ РѕР±СЉРµРєС‚ РІ СЃР°РјС‹Р№ РєРѕРЅРµС† РЅРѕРґС‹, Р° РёРјРµРЅРЅРѕ, РґРѕР±Р°РІР»СЏРµС‚ СЌР»РµРјРµРЅС‚ РїРµСЂРµРґ Р·Р°РєСЂС‹РІР°СЋС‰РёРј РґРµСЃС‚СЂРёРїС‚РѕСЂРѕРј.
+//document.body.prepend(paragraph);	//Р”РѕР±Р°РІР»СЏРµС‚ РѕР±СЉРµРєС‚ РІ РЅР°С‡Р°Р»Рѕ РЅРѕРґС‹, Р° РёРјРµРЅРЅРѕ, РґРѕР±Р°РІР»СЏРµС‚ СЌР»РµРјРµРЅС‚ РїРѕСЃР»Рµ РѕС‚РєСЂС‹РІР°СЋС‰РµРіРѕ РґРµСЃРєСЂРёРїС‚РѕСЂР°.
+//document.body.before(paragraph);	//Р”РѕР±Р°РІР»СЏРµС‚ РѕР±СЉРµРєС‚ РїРµСЂРµРґ РѕС‚РєСЂС‹РІР°СЋС‰РёРј РґРµСЃРєСЂРёРїС‚РѕСЂРѕРј.
+//document.body.after(paragraph);	//Р”РѕР±Р°РІР»СЏРµС‚ РѕР±СЉРµРєС‚ РїРѕСЃР»Рµ Р·Р°РєСЂС‹РІР°СЋС‰РµРіРѕ РґРµСЃРєСЂРёРїС‚РѕСЂР°.
 
 //console.log(document.body.childNodes);
 document.body.lastChild.before(paragraph);
@@ -20,7 +20,7 @@ let u_list = document.createElement("ul");
 
 for (let i = 0; i < 8; i++) {
 	let item = document.createElement("li");
-	item.innerHTML = `Элемент списка ${i + 1}`;
+	item.innerHTML = `Р­Р»РµРјРµРЅС‚ СЃРїРёСЃРєР° ${i + 1}`;
 	u_list.append(item);
 }
 
@@ -31,30 +31,30 @@ headers2[0].after(u_list);
 
 //console.log(document.getElementsByTagName("ul")[0].lastChild);
 
-headers2[0].insertAdjacentHTML('beforeend', '<p>Этот текстдобавлен при помощи <strong><code>insertAdjacentHTML</code><strong></p>');
+headers2[0].insertAdjacentHTML('beforeend', '<p>Р­С‚РѕС‚ С‚РµРєСЃС‚ РґРѕР±Р°РІР»РµРЅ РїСЂРё РїРѕРјРѕС‰Рё <strong><code>insertAdjacentHTML</code><strong></p>');
 /*
-	Вставка при помощи insertAdjacentHTML('куда_вставить', 'что_вставить');
-	beforebegin - перед открывающим дескриптором;
-	afterbegin  - после открывающего дескриптора;
-	beforeend   - перед закрывающим дескриптором;
-	afterend    - после закрывающего дескриптора;
+	Р’СЃС‚Р°РІРєР° РїСЂРё РїРѕРјРѕС‰Рё insertAdjacentHTML('РєСѓРґР°_РІСЃС‚Р°РІРёС‚СЊ', 'С‡С‚Рѕ_РІСЃС‚Р°РІРёС‚СЊ');
+	beforebegin - РїРµСЂРµРґ РѕС‚РєСЂС‹РІР°СЋС‰РёРј РґРµСЃРєСЂРёРїС‚РѕСЂРѕРј;
+	afterbegin  - РїРѕСЃР»Рµ РѕС‚РєСЂС‹РІР°СЋС‰РµРіРѕ РґРµСЃРєСЂРёРїС‚РѕСЂР°;
+	beforeend   - РїРµСЂРµРґ Р·Р°РєСЂС‹РІР°СЋС‰РёРј РґРµСЃРєСЂРёРїС‚РѕСЂРѕРј;
+	afterend    - РїРѕСЃР»Рµ Р·Р°РєСЂС‹РІР°СЋС‰РµРіРѕ РґРµСЃРєСЂРёРїС‚РѕСЂР°;
  */
 
 let script = document.getElementsByTagName("script");
 let ol_header = document.createElement("h2");
-ol_header.innerHTML = "Создаем нумерованный список при помощи JS:";
+ol_header.innerHTML = "РЎРѕР·РґР°РµРј РЅСѓРјРµСЂРѕРІР°РЅРЅС‹Р№ СЃРїРёСЃРѕРє РїСЂРё РїРѕРјРѕС‰Рё JS:";
 script[0].insertAdjacentHTML('beforebegin', ol_header.outerHTML);
 let ol = document.createElement("ol");
 for (let i = 1; i <= 5; i++) {
 	let item = document.createElement("li");
-	item.innerHTML = `Элемент ${i}`;
+	item.innerHTML = `Р­Р»РµРјРµРЅС‚ ${i}`;
 	ol.insertAdjacentHTML('beforeend', item.outerHTML);
 }
 script[0].insertAdjacentHTML('beforebegin', ol.outerHTML);
 console.log(ol);
 
 let header2_clone = header2.cloneNode(true);
-header2_clone.innerHTML = "Клонирование элементов (этот заголовок склонирован с <strong><code>header2</code></strong>)";
+header2_clone.innerHTML = "РљР»РѕРЅРёСЂРѕРІР°РЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ (СЌС‚РѕС‚ Р·Р°РіРѕР»РѕРІРѕРє СЃРєР»РѕРЅРёСЂРѕРІР°РЅ СЃ <strong><code>header2</code></strong>)";
 script[0].insertAdjacentHTML('beforebegin', header2_clone.outerHTML);
 
 let u_list_clone = u_list.cloneNode(true);
@@ -64,13 +64,13 @@ for (let i = 0; i < u_list_clone.children.length; i++) {
 script[0].insertAdjacentHTML("beforebegin", u_list_clone.outerHTML);
 
 
-script[0].insertAdjacentText("beforebegin", "Вставляем соседний текст");
+script[0].insertAdjacentText("beforebegin", "Р’СЃС‚Р°РІР»СЏРµРј СЃРѕСЃРµРґРЅРёР№ С‚РµРєСЃС‚");
 let header_3 = document.createElement("h3");
-header_3.innerHTML = "Добавляем элемент при помощи функции <strong><code>insertAdjacentElement()</code></strong>"
+header_3.innerHTML = "Р”РѕР±Р°РІР»СЏРµРј СЌР»РµРјРµРЅС‚ РїСЂРё РїРѕРјРѕС‰Рё С„СѓРЅРєС†РёРё <strong><code>insertAdjacentElement()</code></strong>"
 script[0].insertAdjacentElement("beforebegin", header_3);
 
 //let header_3_clone = header_3.cloneNode(true);
-//header_3_clone.innerHTML = "Удаление элементов со страницы:";
+//header_3_clone.innerHTML = "РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃРѕ СЃС‚СЂР°РЅРёС†С‹:";
 
 //u_list.remove();
 for (let i = 0; i < 5; i++) {

@@ -37,7 +37,6 @@
         <div id="timer" style="font-size:50px; text-align:center"></div>
         <div id="date_dis" style="font-size:48px; text-align:center"></div>
     </div>
-
     <div id="count_timer" class="timers">
         <h3>Обратный отчет времени:=) </h3>
         <input type="date" id="target_date" value="2024-09-30" />
@@ -64,13 +63,13 @@
         </div>
     </div>
     <!--<div id="result" style="text-align:center;"></div>-->
-    </div>
     <div id="TimestampDebug">
 
     </div>
     <div id="sound">
         <audio controls id="player" style="width:100%">
-            <source src="sound/Nightwish_-_Sleeping_Sun.mp3" type="audio/mp3">
+            <!--<source src="sound/Nightwish_-_Sleeping_Sun.mp3" type="audio/mp3">-->
+            <source src="musik/" type="audio/mp3">
             <!--<source src="https://www.youtube.com/embed/RMRJ1r36Ips" type="video/mp4" />-->
         </audio>
         <input type="file" id="select_file" />
@@ -82,6 +81,16 @@
     </div>
     <div style="text-align:center">
         <iframe src="https://www.youtube.com/embed/RMRJ1r36Ips?autoplay=1&mute=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width:640px;height:480px;"></iframe>
+    </div>
+    <div id="audio">
+        <audio controls id="player" style="width:50%">
+            <source src="musik" type="audio/mp3">
+        </audio>
+            <select name="play" id="selector">
+                <option value="0">Выключить</option>
+                <option value="1">Трек №1</option>
+                <option value="2">Трек #2</option>
+            </select>
     </div>
     <script type="text/javascript" src="Script2.js"></script>
 </body>
