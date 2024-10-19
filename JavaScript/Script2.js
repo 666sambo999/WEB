@@ -362,7 +362,7 @@ document.getElementById("select_file").onchange =
         let select = document.getElementById("select_file");
         selected.innerHTML = select.files[0].name;
         let player = document.getElementById("player");
-        player.src = `musik\\${select.files[0].name}`;
+        player.src = `D:/Musik\\${select.files[0].name}`;
     }
 //document.getElementById("apply_file").onclick =
 //function getSoundFile()
@@ -373,20 +373,20 @@ document.getElementById("select_file").onchange =
 //}
 
 function loadFiles() {
-    let fs = aqFileSystem.FindFiles("musik", "*.*");
+    let fs = aqFileSystem.FindFiles("D:/Musik/", "*.*");
 }
 
-let selector = document.getElementById('selector');
-selector.addEventListener("change", function () {
-    let id = this.value;
-    play(+id);
-});
+//let selector = document.getElementById('selector');
+//selector.addEventListener("change", function () {
+//    let id = this.value;
+//    play(+id);
+//});
 
-function play(id) {
-    let audio = new Audio;
-    if (id === 0) audio.pause();
-    else {
-        audio.src = 'D/Musik' + id + '.mp3';
-        audio.play = true;
-    }
-}
+//function play(id) {
+//    let audio = new Audio;
+//    if (id === 0) audio.pause();
+//    else {
+//        audio.src = 'D:/Musik' + id + '.mp3';
+//        audio.play = true;
+//    }
+//}

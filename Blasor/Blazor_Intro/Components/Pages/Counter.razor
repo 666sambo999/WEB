@@ -1,0 +1,58 @@
+﻿@page "/counter"
+@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<div class="mt-3">
+    <input type="number" min="1" max="10" value="@Step" @onchange="SetStep"/>
+    <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+    <input @oninput="OnChange">
+    <p>@text</p>
+</div>
+<div style="background-color:lightblue" @onmouseover="OnMouseOver" @onmouseout="OnMouseOut">
+    @divtext
+</div>
+<div style="background-color:aqua" @onmouseover="OnMouseOver" @onmouseout="OnMouseOut" @onmousedown='() => divtext = "Mouse Down"' @onmouseup='() => divtext = "Mouse Up"'>@divtext</div>
+
+
+<ol>
+    @for(int i=0;i<currentCount; i++)
+    {
+        <li>Pressed @i</li>
+    }
+</ol>
+
+@code {
+    string text = "";
+    string divtext = "Mouse out";
+    private int currentCount = 0;
+    int step;
+    public int Step { get; set; } = 1;
+    // {
+    //     get => step;
+    //     set
+    //     {
+    //         step = value < 1 ? 1 : value > 10 ? 10 : value;
+    //     }
+    // }   
+    private void IncrementCount()
+    {
+        currentCount +=Step;
+    }
+    // private void SetStep(ChangeEventArgs e)
+    // {
+    //     Step = (int)e.Value!;
+    // }
+    private void SetStep(ChangeEventArgs e) => Step = Convert.ToInt32(e.Value!);
+    private void OnChange(ChangeEventArgs e)
+    {
+        text = (string)e.Value!;
+    }
+    private void OnMouseOver(MouseEventArgs e) => divtext = "Mouse over";
+    private void OnMouseOut (MouseEventArgs e) => divtext = "Mouse out";
+    private void OnMouseUp(MouseEventArgs e) => divtext = "Mouse UP";
+}
