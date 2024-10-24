@@ -1,0 +1,16 @@
+﻿﻿ /*
+    CSS isolation looks only on filenames
+    https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation?view=aspnetcore-8.0
+*/
+.digit {
+    background-color: aquamarine;
+    font-size: 40px;
+    width: 40px;
+    text-align: center;
+}
+.result{
+    background-color: lawngreen;
+    font-size:40px;
+    text-align:center;
+    width:200px;
+}
