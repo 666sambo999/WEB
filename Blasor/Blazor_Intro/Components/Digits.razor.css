@@ -3,14 +3,32 @@
     https://learn.microsoft.com/en-us/aspnet/core/blazor/components/css-isolation?view=aspnetcore-8.0
 */
 .digit {
-    background-color: aquamarine;
-    font-size: 40px;
-    width: 40px;
+    background-color:aquamarine;
+    font-size: 48px;
+    width: 85px;
     text-align: center;
 }
-.result{
+/*.result{
     background-color: lawngreen;
     font-size:40px;
     text-align:center;
     width:200px;
+}*/
+.decimal {
+    background-color: darkturquoise;
+    font-size: 48px;
+    text-align: right;
+    width: 300px;
+}
+.bin, .hex {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.hex_digit {
+   /* background-color:darkblue;
+    color:aliceblue;*/
+    font-size: 48px;
+    width: 300px;
+    text-align: center;
 }
