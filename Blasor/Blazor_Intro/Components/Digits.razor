@@ -9,7 +9,6 @@
 	<input type="radio" value="1 байта" id="byte" name="bit" checked /><label for="byte">Byte</label>
 </div>
 <div>
-
 	<div class="bin" @onclick='() => { Bin2Dec(); Dec2Hex(); }'>
 		@* <div class="digit" @onmouseup="() => Values[7] = Values[7] == 0 ? 1 : 0">@Values[7]</div>
 		<div class="digit" @onmouseup="() => Values[6] = Values[6] == 0 ? 1 : 0">@Values[6]</div>
@@ -19,10 +18,10 @@
 		<div class="digit" @onmouseup="() => Values[2] = Values[2] == 0 ? 1 : 0">@Values[2]</div>
 		<div class="digit" @onmouseup="() => Values[1] = Values[1] == 0 ? 1 : 0">@Values[1]</div>
 		<div class="digit" @onmouseup="() => Values[0] = Values[0] == 0 ? 1 : 0">@Values[0]</div> *@
-		@for (int i = BinCapacity-1; i>=0;i--)
+		@for (int index = BinCapacity-1; index>=0;index--)
 		{
-			if (i >= BinCapacity || i < 0) break;
-			<div class="digit" @onmouseup="() => Values[0] = Values[0] == 0 ? 1 : 0">@Values[0]</div>
+			if (index >= BinCapacity || index < 0) break;
+			<div class="digit" @onmouseup="() => Values[index] = Values[index] == 0 ? 1 : 0">@Values[index]</div>
 		}
 		<div class="decimal">@Decimal</div>
 		@* <div class="decimal" @onmouseover="() => Decimal = int.MaxValue" @onmouseout="() => Decimal = 0">@Decimal</div> *@
@@ -68,4 +67,12 @@
 		// 	// Hex[0] = hex
 		// }
 	}
+	public void SetDigit(int i)
+	{
+		for (int index = BinCapacity - 1; index >= 0; index--)
+		{
+			Values[index] = Values[index] == 0 ? 1 : 0;
+		}
+	}
+	
 }

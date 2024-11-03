@@ -1,0 +1,31 @@
+﻿@page "/"
+@rendermode InteractiveServer
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to Home darling .......
+<audio controls="controls">
+  <source src="file.mp3" type="audio/mp3" />
+  <source src="file.ogg" type="audio/ogg" />
+</audio>
+
+<div id="DataBinding">
+    <h2>DataBinding</h2>
+@*     <input value="@text" @onchange='(ChangeEventArgs e)=>text = (string)e.Value!'>
+    *@    <input @bind="text" @bind:event="oninput" @bind:after="Search">
+    <button @onclick = '()=>text = ""'>Clear</button>
+    <p>@text</p>
+    <p>@search</p>
+</div>
+
+@code{
+    string text = "";
+    string search = "";
+    async Task Search()
+    {
+        search = "searching.....";
+        await Task.Delay(1000);
+        search = $"Found {Random.Shared.Next()} results";
+    }
+}

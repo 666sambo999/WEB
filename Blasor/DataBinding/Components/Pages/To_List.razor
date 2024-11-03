@@ -1,0 +1,57 @@
+﻿@page "/To_List"
+@rendermode InteractiveServer
+
+<PageTitle>To list</PageTitle>
+
+<div id="todo_list_full" style="display:flex; justify-content:space-around;">
+    <div id="todo_list" style="flex:1;">
+        <h3>To_List(@todes.Count(testc=>!testc.isDone))</h3>
+        <input @bind='ToList'/>
+        <button @onclick='AddItems'>Add item</button>
+
+        <ol>
+            @foreach(TOList i in todes)
+            {
+                @if(!i.isDone) 
+                {
+                    <li> <input type="checkbox" @bind="i.isDone" /> @i.Title; date:@i.AssignedTime</li>
+                }
+            }
+        </ol>
+    </div>
+    <div id="done_list" style="flex:1;">
+        <h3>Done List (@todes.Count(testc => testc.isDone))</h3>
+        <ol>
+            @foreach (TOList i in todes)
+            {
+                @if (i.isDone)
+                {
+                    <li> <input type="checkbox" @bind="i.isDone" /> Выполнено: @i.Title @i.AssignedTime  @i.CompletedTime  </li>
+                }
+            }
+        </ol>
+    </div>
+
+</div>
+
+
+
+@code {
+    List<TOList> todes = new List<TOList> ();
+    string ToList = "";
+    public class TOList
+    {
+        public string Title{ get; set; }
+        public bool isDone{ get; set; }
+        public DateTime AssignedTime { get; set; }
+        public DateTime? CompletedTime { get; set; }
+    }
+    public void AddItems(MouseEventArgs e)
+    {
+        if (!string.IsNullOrWhiteSpace(ToList))
+        {
+            todes.Add(new TOList { Title = ToList, AssignedTime = DateTime.Now });
+            ToList = "";
+        }
+    }
+}
