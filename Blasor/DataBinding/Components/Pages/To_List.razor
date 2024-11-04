@@ -14,7 +14,7 @@
             {
                 @if(!i.isDone) 
                 {
-                    <li> <input type="checkbox" @bind="i.isDone" /> @i.Title; date:@i.AssignedTime</li>
+                    <li> <input type="checkbox" @bind="i.isDone" @onclick="() => i.CompletedTime = DateTime.Now"/> @i.Title; date:@i.AssignedTime</li>
                 }
             }
         </ol>
@@ -26,14 +26,13 @@
             {
                 @if (i.isDone)
                 {
-                    <li> <input type="checkbox" @bind="i.isDone" /> Выполнено: @i.Title @i.AssignedTime  @i.CompletedTime  </li>
+                    <li> <input type="checkbox" @bind="i.isDone" /> Выполнено: @i.Title @i.AssignedTime | @i.CompletedTime  </li>
                 }
             }
         </ol>
     </div>
 
 </div>
-
 
 
 @code {
