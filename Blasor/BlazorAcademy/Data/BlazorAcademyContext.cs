@@ -15,5 +15,6 @@ namespace BlazorAcademy.Data
         }
 
         public DbSet<BlazorAcademy.Model.Teacher> Teacher { get; set; } = default!;
+        public DbSet<BlazorAcademy.Model.Discipline> Disciplines { get; set; } = default!;
     }
 }

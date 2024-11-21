@@ -6,4 +6,5 @@ namespace BlazorAcademy.Model
     {
         public DateTime work_since { get; set; }
     }
+
 }

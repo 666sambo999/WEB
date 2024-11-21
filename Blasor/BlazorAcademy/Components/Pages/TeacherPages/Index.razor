@@ -7,15 +7,21 @@
 @inject IDbContextFactory<BlazorAcademy.Data.BlazorAcademyContext> DbFactory
 @rendermode InteractiveServer
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Teachers</PageTitle>
 
-<h1>Index</h1>
+<h1>Teachers</h1>
 
-<p>
-    <a href="teachers/create">Create New</a>
-</p>
+<div style="display: flex; justify-content: space-between;">
+    <div>
+        <a href="teachers/create">Create New</a>
+    </div>
+    <div>
+        <button class="btn btn-primary" @onclick="ResetFilter">Reset filter </button>
+    </div>
+</div>
 
-<QuickGrid Class="table" Items="context.Teacher">
+
+<QuickGrid Class="table" Items="FilteredTeachers" Pagination="state">
     <PropertyColumn Property="teacher => teacher.teacher_id"  Sortable="true" Title="Id"/>
 @*     <PropertyColumn Property="teacher => teacher.last_name"   Sortable="true" Title="Фамилия"/>
     <PropertyColumn Property="teacher => teacher.first_name"  Sortable="true" Title="Имя"/>
@@ -44,17 +50,32 @@
 	</PropertyColumn>
 @*     <PropertyColumn Property="teacher => teacher.last_name + ' ' + teacher.first_name + ' ' + teacher.middle_name" Sortable="true" Title="ФИО" />
  *@    
-	<PropertyColumn Property="teacher => teacher.birth_date"  Sortable="true" Title="Дата рождения"/>
+@* 	<PropertyColumn Property="teacher => teacher.birth_date"  Sortable="true" Title="Дата рождения"/>
     <PropertyColumn Property="teacher => teacher.work_since"  Sortable="true" Title="Начало работы"/>
+ *@
+@* 	<PropertyColumn Property="teacher => (DateTime.Today - teacher.birth_date).Days/365" Sortable="true" Title="Возраст"></PropertyColumn>
+ *@	<PropertyColumn Property="teacher => Teacher.age(teacher.birth_date)" Title="Возраст"></PropertyColumn>
+	<PropertyColumn Property="teacher => (DateTime.Today - teacher.work_since).Days/365" Sortable="true" Title="Стаж работы"></PropertyColumn>
 
     <TemplateColumn Context="teacher">
-        <a href="@($"teachers/edit?teacher_id={teacher.teacher_id}")">Edit</a> |
-        <a href="@($"teachers/details?teacher_id={teacher.teacher_id}")">Details</a> |
-        <a href="@($"teachers/delete?teacher_id={teacher.teacher_id}")">Delete</a>
-    </TemplateColumn>
+@*         <a href="@($"teachers/edit?teacher_id={teacher.teacher_id}")">Edit</a> |
+ *@        <a href="@($"teachers/details?teacher_id={teacher.teacher_id}")">Details</a> |
+@*         <a href="@($"teachers/delete?teacher_id={teacher.teacher_id}")">Delete</a>
+ *@    </TemplateColumn>
 </QuickGrid>
 
+<Paginator State="state" />
+
+<div>
+	<select @bind="state.ItemsPerPage" @bind:event="onchange">
+		<option>3</option>
+		<option>5</option>
+		<option>10</option>
+		<option>15</option>
+	</select>
+</div>
 @code {
+	PaginationState state = new PaginationState { ItemsPerPage = 5 };
     private BlazorAcademyContext context = default!;
 	string lastNameFilter = "";
 	string firstNameFilter = "";
@@ -67,4 +88,11 @@
     }
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
+
+	public void ResetFilter()
+	{
+		lastNameFilter = "";
+		firstNameFilter = "";
+		middleNameFilter = "";
+	}
 }
