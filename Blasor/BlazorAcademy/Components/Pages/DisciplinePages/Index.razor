@@ -3,6 +3,7 @@
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using BlazorAcademy.Model
 @using BlazorAcademy.Data
+
 @implements IAsyncDisposable
 @inject IDbContextFactory<BlazorAcademy.Data.BlazorAcademyContext> DbFactory
 @rendermode InteractiveServer
@@ -11,17 +12,33 @@
 
 <h1>Disciplines</h1>
 
-<p>
-    <a href="disciplines/create">Create New</a>
-</p>
+<div style="display: flex; justify-content: space-between">
+    <p>
+        <a href="disciplines/create">Create New</a>
+    </p>
+    <div>
+        <button class="btn btn-primary" @onclick="ResetFilter">Reset filter </button>
+    </div>
+</div>
 <div> 
-    
+    <SfDropDownList TValue="string" TItem="Discipline" Placeholder="Select a discipline" DataSource="@LocalData">
+        <DropDownListFieldSettings Value="Text" Text="Text"></DropDownListFieldSettings>
+        <DropDownListEvents TValue="string" TItem="Discipline" ValueChange="OnValueChange"></DropDownListEvents>
+    </SfDropDownList>
 </div>
 
-<QuickGrid Class="table" Items="context.Disciplines">
+<QuickGrid Class="table" Items="FilteredDisciplines" >
     <PropertyColumn Property="discipline => discipline.disciplin_id" Sortable="true" Title="ID" />
-    <PropertyColumn Property="discipline => discipline.discipline_name" Sortable="true" Title="название дисциплины"/>
-    <PropertyColumn Property="discipline => discipline.number_of_lesson" Sortable="true" Title="количество уроков"/>
+@*     <PropertyColumn Property="discipline => discipline.discipline_name" Sortable="true" Title="название дисциплины"/>
+     *@ 
+     <PropertyColumn Property="discipline => discipline.discipline_name" Sortable="true" Title="название дисциплины">
+        <ColumnOptions>
+            <div>
+                <input type="search" @bind="DisciplineFilter" @bind:event="oninput"></input>
+            </div>
+        </ColumnOptions>
+    </PropertyColumn>
+     <PropertyColumn Property="discipline => discipline.number_of_lesson" Sortable="true" Title="количество уроков"/>
 
     <TemplateColumn Context="discipline">
         <a href="@($"disciplines/edit?discipline_id={discipline.disciplin_id}")">Edit</a> |
@@ -32,12 +49,36 @@
 
 @code {
     private BlazorAcademyContext context = default!;
-
+    public int ID { get; set; }
+    public string Text { get; set; }
     protected override void OnInitialized()
     {
         context = DbFactory.CreateDbContext();
     }
-    
+    string DisciplineFilter = "";
+    IQueryable<Discipline> FilteredDisciplines => context.Disciplines.Where(t => t.discipline_name.Contains(DisciplineFilter));
+
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
+
+    public void ResetFilter()
+    {
+        DisciplineFilter = "";
+    }
+    List<Discipline> LocalData = new List<Discipline> {
+    new Discipline() { disciplin_id = 1, discipline_name= "Процедурное програмирование на языке С++" },
+    // new Discipline() { ID= "Game2", Text= "Badminton" },
+    // new Discipline() { ID= "Game3", Text= "Basketball" },
+    // new Discipline() { ID= "Game4", Text= "Cricket" },
+    // new Discipline() { ID= "Game5", Text= "Football" },
+    // new Discipline() { ID= "Game6", Text= "Golf" },
+    // new Discipline() { ID= "Game7", Text= "Hockey" },
+    // new Discipline() { ID= "Game8", Text= "Rugby"},
+    // new Discipline() { ID= "Game9", Text= "Snooker" },
+    // new Discipline() { ID= "Game10",Text= "Tennis"},
+  };
+    public void OnValueChange(ChangeEventArgs args)
+    {
+        Console.WriteLine("The DropDownList Value is: ", args.Value);
+    }
 }
