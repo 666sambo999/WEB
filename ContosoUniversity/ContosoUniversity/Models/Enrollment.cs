@@ -16,7 +16,7 @@ namespace ContosoUniversity.Models
 
 		public required Course Course { get; set; }
 
-		public required Students Student { get; set; }
+		public required Studentes Student { get; set; }
 
 	}
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Data;
 using ContosoUniversity.Models;
 
-namespace ContosoUniversity.Pages.Student
+namespace ContosoUniversity.Pages.Students
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,11 @@ namespace ContosoUniversity.Pages.Student
             _context = context;
         }
 
-        public IList<Students> Student { get;set; } = default!;
+        public IList<Studentes> Students { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Student = await _context.Student.ToListAsync();
+            Students = await _context.Student.ToListAsync();
         }
     }
 }

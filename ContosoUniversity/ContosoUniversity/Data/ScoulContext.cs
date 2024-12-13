@@ -14,6 +14,16 @@ namespace ContosoUniversity.Data
         {
         }
 
-        public DbSet<ContosoUniversity.Models.Students> Student { get; set; } = default!;
-    }
+        public DbSet<ContosoUniversity.Models.Studentes> Student { get; set; }
+        public DbSet<Enrollment> Enrollments {  get; set; }
+        
+        public DbSet<Course> Courses { get; set; }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+            modelBuilder.Entity<Course>().ToTable("Course");
+            modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
+            modelBuilder.Entity<Studentes>().ToTable("Student");
+		}
+	}
 }

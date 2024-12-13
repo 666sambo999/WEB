@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Data;
 using ContosoUniversity.Models;
 
-namespace ContosoUniversity.Pages.Student
+namespace ContosoUniversity.Pages.Students
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace ContosoUniversity.Pages.Student
         }
 
         [BindProperty]
-        public Students Student { get; set; } = default!;
+        public Studentes Students { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -35,7 +35,7 @@ namespace ContosoUniversity.Pages.Student
             {
                 return NotFound();
             }
-            Student = student;
+            Students = student;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace ContosoUniversity.Pages.Student
                 return Page();
             }
 
-            _context.Attach(Student).State = EntityState.Modified;
+            _context.Attach(Students).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace ContosoUniversity.Pages.Student
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StudentExists(Student.Id))
+                if (!StudentExists(Students.Id))
                 {
                     return NotFound();
                 }
