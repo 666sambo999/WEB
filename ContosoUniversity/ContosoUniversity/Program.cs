@@ -5,8 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<ScoulContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ScoulContext") ?? throw new InvalidOperationException("Connection string 'ScoulContext' not found.")));
+builder.Services.AddDbContext<SchoolContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SchoolContext") ?? throw new InvalidOperationException("Connection string 'ScoulContext' not found.")));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 var app = builder.Build();
@@ -26,7 +26,7 @@ else
 using (IServiceScope scope = app.Services.CreateScope())
 {
     IServiceProvider service = scope.ServiceProvider;
-    ScoulContext context = service.GetRequiredService<ScoulContext>();
+	SchoolContext context = service.GetRequiredService<SchoolContext>();
     DBInitial.Initializ(context);
     context.Database.EnsureCreated();
 }

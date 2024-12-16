@@ -1,14 +1,17 @@
 ﻿using ContosoUniversity.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ContosoUniversity.Data
 {
 	public class DBInitial
 	{
-		public static void Initializ (ScoulContext context)
+		public static void Initializ (SchoolContext context)
 		{
 			//if (context.Student.Any()) return;
 			// Look for any students.
-			if (context.Student.Any())
+			if (context.Students.Any())
 			{
 				return;   // DB has been seeded
 			}
@@ -189,7 +192,7 @@ namespace ContosoUniversity.Data
 			//var chemistry = new Course
 			//{
 			//	CourseId = 1050,
-			//	Title = "Chemistry",
+			//	CourseName = "Chemistry",
 			//	Credits = 3,
 			//	Department = engineering,
 			//	Instructors = new List<Instructor> { kapoor, harui }
@@ -198,7 +201,7 @@ namespace ContosoUniversity.Data
 			//var microeconomics = new Course
 			//{
 			//	CourseId = 4022,
-			//	Title = "Microeconomics",
+			//	CourseName = "Microeconomics",
 			//	Credits = 3,
 			//	Department = economics,
 			//	Instructors = new List<Instructor> { zheng }
@@ -207,7 +210,7 @@ namespace ContosoUniversity.Data
 			//var macroeconmics = new Course
 			//{
 			//	CourseId = 4041,
-			//	Title = "Macroeconomics",
+			//	CourseName = "Macroeconomics",
 			//	Credits = 3,
 			//	Department = economics,
 			//	Instructors = new List<Instructor> { zheng }
@@ -216,7 +219,7 @@ namespace ContosoUniversity.Data
 			//var calculus = new Course
 			//{
 			//	CourseId = 1045,
-			//	Title = "Calculus",
+			//	CourseName = "Calculus",
 			//	Credits = 4,
 			//	Department = mathematics,
 			//	Instructors = new List<Instructor> { fakhouri }
@@ -225,7 +228,7 @@ namespace ContosoUniversity.Data
 			//var trigonometry = new Course
 			//{
 			//	CourseId = 3141,
-			//	Title = "Trigonometry",
+			//	CourseName = "Trigonometry",
 			//	Credits = 4,
 			//	Department = mathematics,
 			//	Instructors = new List<Instructor> { harui }
@@ -234,7 +237,7 @@ namespace ContosoUniversity.Data
 			//var composition = new Course
 			//{
 			//	CourseId = 2021,
-			//	Title = "Composition",
+			//	CourseName = "Composition",
 			//	Credits = 3,
 			//	Department = english,
 			//	Instructors = new List<Instructor> { abercrombie }
@@ -243,7 +246,7 @@ namespace ContosoUniversity.Data
 			//var literature = new Course
 			//{
 			//	CourseId = 2042,
-			//	Title = "Literature",
+			//	CourseName = "Literature",
 			//	Credits = 4,
 			//	Department = english,
 			//	Instructors = new List<Instructor> { abercrombie }

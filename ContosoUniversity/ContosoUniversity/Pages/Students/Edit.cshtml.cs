@@ -13,9 +13,9 @@ namespace ContosoUniversity.Pages.Students
 {
     public class EditModel : PageModel
     {
-        private readonly ContosoUniversity.Data.ScoulContext _context;
+        private readonly ContosoUniversity.Data.SchoolContext _context;
 
-        public EditModel(ContosoUniversity.Data.ScoulContext context)
+        public EditModel(ContosoUniversity.Data.SchoolContext context)
         {
             _context = context;
         }
@@ -30,7 +30,7 @@ namespace ContosoUniversity.Pages.Students
                 return NotFound();
             }
 
-            var student =  await _context.Student.FirstOrDefaultAsync(m => m.Id == id);
+            var student =  await _context.Students.FirstOrDefaultAsync(m => m.Id == id);
             if (student == null)
             {
                 return NotFound();
@@ -71,7 +71,7 @@ namespace ContosoUniversity.Pages.Students
 
         private bool StudentExists(int id)
         {
-            return _context.Student.Any(e => e.Id == id);
+            return _context.Students.Any(e => e.Id == id);
         }
     }
 }

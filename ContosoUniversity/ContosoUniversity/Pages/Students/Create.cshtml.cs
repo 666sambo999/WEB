@@ -12,9 +12,9 @@ namespace ContosoUniversity.Pages.Students
 {
     public class CreateModel : PageModel
     {
-        private readonly ContosoUniversity.Data.ScoulContext _context;
+        private readonly ContosoUniversity.Data.SchoolContext _context;
 
-        public CreateModel(ContosoUniversity.Data.ScoulContext context)
+        public CreateModel(ContosoUniversity.Data.SchoolContext context)
         {
             _context = context;
         }
@@ -35,7 +35,7 @@ namespace ContosoUniversity.Pages.Students
                 return Page();
             }
 
-            _context.Student.Add(Students);
+            _context.Students.Add(Students);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

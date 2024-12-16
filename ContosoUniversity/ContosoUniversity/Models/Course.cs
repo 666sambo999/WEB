@@ -7,10 +7,10 @@ namespace ContosoUniversity.Models
 	{
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int CourseId { get; set; }
-		public  string CourseName { get; set;}
+		public  required string CourseName { get; set;}
 
 		public int Credits { get; set; }
 
-		public ICollection<Enrollment> Enrollments { get; set; }
+		public ICollection<Enrollment>? Enrollments { get; set; }
 	}
 }

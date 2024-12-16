@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Data;
 using ContosoUniversity.Models;
 
-namespace ContosoUniversity.Pages.Student
+namespace ContosoUniversity.Pages.Students
 {
     public class DetailsModel : PageModel
     {
-        private readonly ContosoUniversity.Data.ScoulContext _context;
+        private readonly ContosoUniversity.Data.SchoolContext _context;
 
-        public DetailsModel(ContosoUniversity.Data.ScoulContext context)
+        public DetailsModel(ContosoUniversity.Data.SchoolContext context)
         {
             _context = context;
         }
@@ -28,8 +28,13 @@ namespace ContosoUniversity.Pages.Student
                 return NotFound();
             }
 
-            var student = await _context.Student.FirstOrDefaultAsync(m => m.Id == id);
-            if (student == null)
+            //var student = await _context.Student.FirstOrDefaultAsync(m => m.Id == id);
+            Studentes student = await _context.Students
+				.Include(s => s.Enrollments)
+				.ThenInclude(e => e.Course)
+				.AsNoTracking()
+				.FirstAsync(m => m.Id == id);
+			if (student == null)
             {
                 return NotFound();
             }

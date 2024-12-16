@@ -12,9 +12,9 @@ namespace ContosoUniversity.Pages.Students
 {
     public class DeleteModel : PageModel
     {
-        private readonly ContosoUniversity.Data.ScoulContext _context;
+        private readonly ContosoUniversity.Data.SchoolContext _context;
 
-        public DeleteModel(ContosoUniversity.Data.ScoulContext context)
+        public DeleteModel(ContosoUniversity.Data.SchoolContext context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace ContosoUniversity.Pages.Students
                 return NotFound();
             }
 
-            var student = await _context.Student.FirstOrDefaultAsync(m => m.Id == id);
+            var student = await _context.Students.FirstOrDefaultAsync(m => m.Id == id);
 
             if (student == null)
             {
@@ -49,11 +49,11 @@ namespace ContosoUniversity.Pages.Students
                 return NotFound();
             }
 
-            var student = await _context.Student.FindAsync(id);
+            var student = await _context.Students.FindAsync(id);
             if (student != null)
             {
                 Students = student;
-                _context.Student.Remove(Students);
+                _context.Students.Remove(Students);
                 await _context.SaveChangesAsync();
             }
 
