@@ -1,0 +1,21 @@
+﻿@page
+@model ContosoUniversity.Pages.AboutModel
+@{
+    ViewData["Title"] = "Статистика";  
+}
+
+<h2>Student Statistic </h2>
+
+<table>
+	<tr>
+		<th>Enrollment date</th>
+		<th>Students</th>
+	</tr>
+	@foreach (Models.SchoolModel.EnromentGroop item in Model.Students)
+	{
+		<tr>
+			<td>@Html.DisplayFor(modelItem => item.EnromentDate)</td>
+			<td>@item.StudentCount</td>
+		</tr>
+	}
+</table>

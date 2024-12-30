@@ -2,7 +2,7 @@
 @model ContosoUniversity.Pages.Students.IndexModel
 
 @{
-    ViewData["Title"] = "Студик";
+    ViewData["Title"] = "Студинтик";
 }
 
 <h1>Students</h1>
@@ -23,42 +23,63 @@
 <table class="table">
     <thead>
         <tr>
-           <th>
-				<a asp-page="./Index" asp-route-sortOrder="@Model.LastNameSort" asp-route-currentFilter="@Model.CurrentFilter">
-					@Html.DisplayNameFor(model => model.Students[0].LastName)
-				</a>
-			</th>
-			<th>
-				<a asp-page="./Index" asp-route-sortOrder="@Model.FirstNameSort" asp-route-currentFilter="@Model.CurrentFilter">
-					@Html.DisplayNameFor(model => model.Students[0].FirstName)
-				</a>
-			</th>
-			<th>
-				<a asp-page="./Index" asp-route-sortOrder="@Model.DateSort" asp-route-currentFilter="@Model.CurrentFilter">
-					@Html.DisplayNameFor(model => model.Students[0].EnrollmentDate)
-				</a>
-			</th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.LastNameSort" asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Stud[0].LastName)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.FirstNameSort" asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Stud[0].FirstName)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort" asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Stud[0].EnrollmentDate)
+                </a>
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Students) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EnrollmentDate)
-            </td>
-            <td>
-@*                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
- *@             <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Stud) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+@{
+    string prevDisab = Model.Stud.HasPreviosPage ? "" : "disabled";
+    string nextDisab = Model.Stud.HasNextPage ? "" : "disabled";
+}
+@* // передаем параметpы в метод OnGetAsync в IndexModel
+ *@
+ <a 
+   asp-page="./Index" asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Stud.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisab">
+    Previous
+</a>
+<a 
+   asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Stud.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisab">
+    Next
+</a>

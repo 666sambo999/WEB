@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Data;
 using ContosoUniversity.Models;
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
 
 namespace ContosoUniversity.Pages.Students
 {
     public class IndexModel : PageModel
     {
         private readonly ContosoUniversity.Data.SchoolContext _context;
-
-        public IndexModel(ContosoUniversity.Data.SchoolContext context)
+		private readonly IConfiguration _configuration;
+        public IndexModel(ContosoUniversity.Data.SchoolContext context, IConfiguration configuration)
         {
             _context = context;
+			_configuration = configuration;
         }
 		public string LastNameSort { get; set; }
 		public string FirstNameSort { get; set; }
@@ -24,7 +27,8 @@ namespace ContosoUniversity.Pages.Students
 		public string CurrentFilter { get; set; }
 		public string CurrentSort { get; set; }
 
-		public IList<Studentes> Students { get;set; } = default!;
+		public PaginatedList<Studentes> Stud { get; set; }
+		//public IList<Studentes> Students { get;set; } = default!;
 
         public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex)
         {
@@ -62,9 +66,9 @@ namespace ContosoUniversity.Pages.Students
 				case "dete_desc": students = students.OrderByDescending(s => s.EnrollmentDate); break;
 			}
 
-			//int pageSize = _configuration.GetValue("PageSize", 4);
-			//Students = await PaginatedList<Studentes>.CreateAsync(students.AsNoTracking(), pageIndex ?? 1, pageSize);
-			Students = await students.AsNoTracking().ToListAsync();
+			int pageSize = _configuration.GetValue("PageSize", 4);
+			Stud = await PaginatedList<Studentes>.CreateAsync(students.AsNoTracking(), pageIndex ?? 1, pageSize);
+			//Stud = await students.AsNoTracking().ToListAsync();
 		}
 	}
 }
