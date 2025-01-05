@@ -4,6 +4,7 @@ using ContosoUniversity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContosoUniversity.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20250102211329_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,27 +123,25 @@ namespace ContosoUniversity.Migrations
 
             modelBuilder.Entity("ContosoUniversity.Models.Instructor", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("FirstMidName")
+                    b.Property<string>("FisrtMidlName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("FirstName");
 
-                    b.Property<DateTime>("HireDate")
+                    b.Property<DateTime>("HirDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Instructor", (string)null);
                 });
@@ -176,12 +177,12 @@ namespace ContosoUniversity.Migrations
                     b.Property<int>("CoursesCourseId")
                         .HasColumnType("int");
 
-                    b.Property<int>("InstructorsID")
+                    b.Property<int>("InstructorsId")
                         .HasColumnType("int");
 
-                    b.HasKey("CoursesCourseId", "InstructorsID");
+                    b.HasKey("CoursesCourseId", "InstructorsId");
 
-                    b.HasIndex("InstructorsID");
+                    b.HasIndex("InstructorsId");
 
                     b.ToTable("CourseInstructor");
                 });
@@ -189,7 +190,7 @@ namespace ContosoUniversity.Migrations
             modelBuilder.Entity("ContosoUniversity.Models.Assistins", b =>
                 {
                     b.HasOne("ContosoUniversity.Models.Instructor", "Instructor")
-                        .WithOne("OfficeAssignment")
+                        .WithOne("OfficeAssistent")
                         .HasForeignKey("ContosoUniversity.Models.Assistins", "InstructorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -246,7 +247,7 @@ namespace ContosoUniversity.Migrations
 
                     b.HasOne("ContosoUniversity.Models.Instructor", null)
                         .WithMany()
-                        .HasForeignKey("InstructorsID")
+                        .HasForeignKey("InstructorsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -263,7 +264,8 @@ namespace ContosoUniversity.Migrations
 
             modelBuilder.Entity("ContosoUniversity.Models.Instructor", b =>
                 {
-                    b.Navigation("OfficeAssignment");
+                    b.Navigation("OfficeAssistent")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ContosoUniversity.Models.Studentes", b =>

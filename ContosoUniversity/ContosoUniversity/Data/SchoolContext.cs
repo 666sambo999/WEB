@@ -19,20 +19,20 @@ namespace ContosoUniversity.Data
 		public DbSet<Course> Courses { get; set; }
 
 
-		//public DbSet<Department> Departments { get; set; }
-		//public DbSet<Instructor> Instructors { get; set; }
-		//public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
+		public DbSet<Department> Department { get; set; }
+		public DbSet<Instructore> Instructor { get; set; }
+		public DbSet<Assistins> OfficeAssignments { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			//FluentAPI:
-			//modelBuilder.Entity<Course>().ToTable(nameof(Course))
-			//	.HasMany(c => c.Instructors)
-			//	.WithMany(i => i.Courses);
+			modelBuilder.Entity<Course>().ToTable(nameof(Course))
+				.HasMany(c => c.Instructors)
+				.WithMany(i => i.Courses);
 
-			////		Attributes:
-			//modelBuilder.Entity<Studentes>().ToTable(nameof(Student));
-			//modelBuilder.Entity<Instructor>().ToTable(nameof(Instructor));
+			//		Attributes:
+			modelBuilder.Entity<Studentes>().ToTable(nameof(Studentes));
+			modelBuilder.Entity<Instructore>().ToTable(nameof(Instructor));
 
 			modelBuilder.Entity<Course>().ToTable("Course");
 			modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
