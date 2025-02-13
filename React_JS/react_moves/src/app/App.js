@@ -4,7 +4,7 @@ import './App.css';
 import Header from '../header/Header';
 import Footer from '../loyaut/Footer';
 import Main from '../loyaut/Main';
-import Movie from '../component/Movie';
+
 
 
 function App() {
