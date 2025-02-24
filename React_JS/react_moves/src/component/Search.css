@@ -16,7 +16,7 @@
 .btn{
     padding: 6px 16px;
     background: rgb(19, 99, 153);
-    color:rgb(86, 100, 146);
+    color:rgb(187, 190, 201);
     border: 2px solid;
     font-weight: bold;
     border-radius: 6px;
@@ -24,4 +24,37 @@
     font-family: fantasy;
     width: 100px;
     cursor: pointer;
+}
+.radio{
+    margin: 20px 20px 0;
+    display: flex;
+    justify-items: first baseline;
+    background: local;
+    background-color: aquamarine;
+}
+.radio input{
+    width: 20px;
+    height: 20px;
+}
+.radio span{
+    margin-right: 50px;
+    font-size: 20px;
+}
+.btr{
+    background: rgb(207, 223, 235);
+    color:rgb(46, 55, 85);
+    border: 2px solid;
+    font-weight: bold;
+    border-radius: 6px;
+    box-shadow: inset 1px 1px 2px white;
+    font-family:'Times New Roman', Times, serif;
+    cursor: pointer;
+    margin: 10px;
+}
+.navigator{
+    display: flexbox;
+    padding: 10px;
+    margin: 20px;
+    position: static;
+    right: 30px;
 }
