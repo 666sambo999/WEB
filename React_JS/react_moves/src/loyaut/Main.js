@@ -16,7 +16,7 @@ class Main extends React.Component
     {
         fetch(`http://www.omdbapi.com/?apikey=393407e7&s=terminator`)
         .then(response => response.json())
-        .then(data =>this.setState({movies:data.Search, loading: false}))
+        .then(data =>this.setState({movies:data.Search, loading: false, total:data.totalResults}))
         console.log(this.state.movies);
     }
 
@@ -26,7 +26,7 @@ class Main extends React.Component
         fetch(`http://www.omdbapi.com/?apikey=393407e7&s=${str}${type !=='all'? `&type=${type}` : ''}${`&page=${page}`}`)
         //fetch(str.length !==0 ? `http://www.omdbapi.com/?apikey=393407e7&s=${str}${type !=='all'? `&type=${type}` : ''}` : `http://www.omdbapi.com/?apikey=393407e7&s`)
         .then(response =>response.json())
-        .then(data => this.setState({movies:data.Search, loading: false}))
+        .then(data => this.setState({movies:data.Search, loading: false, total:data.totalResults}))
     }
 
     render()
@@ -36,7 +36,7 @@ class Main extends React.Component
         return(
             <div className="main">
                 <div className="wrap"></div>
-                <Search searchMovie={this.searchMovie}/>
+                <Search searchMovie={this.searchMovie} totalMovies={this.state.total}/>
                 {
                     //<MovieList movies ={movies}/>
                     !this.state.loading ? <MovieList movies ={movies}/> : <Preloader></Preloader>

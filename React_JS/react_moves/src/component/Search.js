@@ -4,21 +4,22 @@ import "./Search.css";
 
 
 class Search extends React.Component {
-    constructor(props)
-    {
-        super(props);
-        //this.setState({totalPages:props.total/10})   
-        this.state.totalPages = props.total/10;
-    }
+    // constructor(props)
+    // {
+    //     super(props);
+    //     //this.setState({totalPages:props.total/10})   
+    //     this.state.totalPages = props.total/10;
+    // }
     
     state = {
         search: "Terminator",
         type: "all",
-        page:1,
-        totalPages:1
+        page: 1,
+        totalPages:0
     }
 
-    handleKey = (event) => {
+    handleKey = (event) => 
+    {
         if (event.key === "Enter") {
             this.props.searchMovie(this.state.search, this.state.type);
         }
@@ -42,13 +43,49 @@ class Search extends React.Component {
     nextPage =()=>
     {
         this.setState(
-            () =>(this.state.page < 5 ? {page:this.state.page+1}:{page:50}),
+            () =>({page: this.state.page<Math.ceil(this.props.totalMovies/10) ? this.state.page+1 : this.state.page}),
             () => (this.props.searchMovie(this.state.search,this.state.type, this.state.page))
+        )
+    }
+
+    firstPage=()=>
+    {
+        this.setState(
+            ()=> ({page:1}),
+            ()=>(this.props.searchMovie(this.state.search, this.state.type,this.state.page))
+        )
+    }
+    lastPage=()=>
+        {
+            this.setState(
+                //()=> ({page:this.state.totalPages}),
+                ()=> ({page:Math.ceil(this.props.totalMovies/10)}),
+                ()=>(this.props.searchMovie(this.state.search, this.state.type,this.state.page))
+                //()=> ({totalPages: this.props.totalMovies/10-1})
+            )
+        }
+
+    setPage = (pageNumber) =>
+    {
+        this.setState
+        (
+            () => ({page:pageNumber}),
+            () => {this.props.searchMovie(this.state.search, this.state.type, this.state.page)}
         )
     }
 
     render() {
         console.log("Search render");
+        let moviesPrevPage = 10;
+        let totalPages = Math.ceil(this.props.totalMovies/moviesPrevPage);
+        //this.setState({totalPages:totalPages});
+        let  lastIndex= totalPages <=10 ? totalPages +1 : this.state.page + moviesPrevPage;
+        let firstIndex = totalPages <=10 ? lastIndex - moviesPrevPage + lastIndex +1 : lastIndex - moviesPrevPage;
+        let pagesNumbers = [];
+
+        for (let i =0; i < totalPages; i++)
+            pagesNumbers.push(i);
+        
         return (
             <>
                 <div className="search">
@@ -71,7 +108,7 @@ class Search extends React.Component {
                         <input type="radio" name="type" data-type="movie" checked={this.state.type ==='movie'} onChange={this.handlerFilter} id="movie"/><label htmlFor="movie"><span>Movie</span></label> 
                     </div>
                     <div>
-                        <input type="radio" name="type" data-type="tele" checked={this.state.type ==='tele'} onChange={this.handlerFilter} id="tele"/><label htmlFor="tele"><span>Television</span></label>
+                        <input type="radio" name="type" data-type="series" checked={this.state.type ==='series'} onChange={this.handlerFilter} id="tele"/><label htmlFor="tele"><span>Television</span></label>
                     </div>
                     <div>
                         <input type="radio" name="type" data-type="game" checked={this.state.type ==='game'} onChange={this.handlerFilter} id="game"/><label htmlFor="game"><span>Games</span></label>
@@ -81,8 +118,30 @@ class Search extends React.Component {
                 
                 <div className="navigator">
                     <button className="btr" onClick={this.prevPage}>Previon </button>
+                    <button className="btr" onClick={this.firstPage}>First</button>
+                    <div className="item">
+                        {
+                            pagesNumbers
+                            .slice(firstIndex, lastIndex)
+                            .map(
+                                (el, index) => 
+                                {
+                                    return <button 
+                                        className="btn_num" 
+                                        style={{background: this.state.page !== el ? "grey" : ""}} 
+                                        key={index} 
+                                        onClick={()=> (this.setPage(el))}>
+                                    {el}
+                                    </button>
+                                }
+                            )
+                        }
+                    </div>
                     <button className="btr" onClick={this.nextPage}>Next</button>
+                    <button className="btr" onClick={this.lastPage}>Last</button>
                 </div>
+                
+                
             </>
         )
     }
