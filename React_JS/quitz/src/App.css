@@ -1,0 +1,18 @@
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: aliceblue;
+}
+.main{
+  width: 420px;
+  margin-top: 200px;
+  padding: 40px 40px;
+  box-shadow: 0 0 30px rgb(71, 71, 180);
+  border-radius: 10px;
+}
