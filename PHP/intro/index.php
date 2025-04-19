@@ -1,44 +1,37 @@
 ﻿<?php
-	$for = "Introduction to PHP"; // так же как include страивает содежимое файла в наш файл
-	//закрывающая метка в *РНР - файле не обяз.
-	define ('NAME','value');
-	//const PI = 3.14;
-	const PREFIX = 'OPTION';
+$title = 'Array'; 
 
-	$int=1024;
-	$heredoc_string = <<<HEREDOC_STRING
-		"Heredoc"-string (RAW-строка)-это строка с форматированием.
-		Такие строки игнорируется Esc - последовательности, и выводятся точно также как и задаются.
-			<code>
-				$name<<<NAME
-					Содержимое строки...
-									...
-									...
-				NAME
-			</code>
-			Heredoc-раскрывают переменные, т.е. поддерживат интерполяцию: <code> $int </code>
-HEREDOC_STRING;
-echo '<br';
+$array1 = array(1,3,5,8,12,17); // явный вызов конструктора
+$array2 = [24,34,45,56.45]; // объявление массива через неявный вызов 
+$array3 = [1,2,3,4,5,6,7];
 
-$nowdoc_string = <<<'NOWDOC_STRING'
-	"Nowdoc" -строка; Отличие от heredoc dв том, что не поддерживает интерполяцию: <code> $int </code>
-NOWDOC_STRING;
-	
-	$escape_sequences = <<< ESCAPE_SEQUENCES
-	<h3> Escape-последовательности: <h3>
-	<strong> Escape-последовательности </string> &hyphen; это символы, эканированные символом '\'
-	<strong> Backslash ('\') </string> &mdash; это символ отмены спец значения другого символа;
-	<ul>
-		<li><code>\"</code>&mdash; отменяет специальное значение двойных кавычек;</li>
-		<li><code>\'</code>&mdash; отменяет специальное значение одинарных кавычек;</li>
-		<li><code></code></li>
-	</ul>
-	Но, некоторым символам <code>'\'</code> наоборот, придает специальное значение, например:
-	<ul>
-		<li><code>'\n'</code> &mdash; переход в начало следующей строки;</li>
-		<li><code>'\t'</code> &mdash; символ табуляции;</li>
-	</ul>
-ESCAPE_SEQUENCES;
-	require 'function.php';
-	require 'index.view.php';
+
+$distant_to_sun['Mercury'] = 4600000;
+$distant_to_sun['Venus'] = 108000000;
+$distant_to_sun['Earth'] = 149000000;
+
+$array2D = [
+	[1,2,3,4,5],
+	[23,34,56],
+	[45,7,8,9,789]
+];
+
+function print_array($array)
+{
+	echo '<pre>';
+	//for($i=0;$i<count($array); $i++)
+		//echo "$array[$i]\t";
+	foreach($array as $iterator)
+		echo "$iterator\t";
+	echo '</pre>';
+}
+function print_array_pre($array)
+{
+	echo '<pre>';
+	print_r($array);
+	echo '</pre>';
+}
+
+require 'index.view.php';
+//require 'array.php';
 ?>

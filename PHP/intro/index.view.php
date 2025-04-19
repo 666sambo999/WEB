@@ -1,112 +1,85 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ru">
 <head>
-    <?php $title="Introdution to PHP"?>
-    <meta charset="utf-8" />
-    <title><?php echo $title?></title>
+    <meta encoding="UTF-8" />
+    <title><?= $title; ?></title> 
 </head>
 <body>
-    <h1 style="color: blue;text-align:center">
-    <?php echo "Hello PHP on IIS Windows"?>
-    </h1>
-    <p> содержание файла </p>
-    <h2><?php echo $title?></h2> 
-    <p>Statements<p>
-    <!--<p> $name = value(обявление переменной)<p>-->
-    <h2>Function:</h2>
-    <?php factorial(5) ?>
-    <?php echo "5!=", factorial(6)?>
-    <?php 
-        echo 'var_dump()';
-        echo var_dump(100); 
-        echo NAME;
-        echo '<br>';
-        //die();//убирает выполнение скрипта
-        //echo PI;
-        echo 'NULL';
-        echo '<p>';
-        $variable = null;
-        echo '<p>';
-        echo $variable;
-        unset($variable);
-        echo '<p>';
-        $variable = 123;
-        echo '<p>';
-        echo $variable;
-        echo '<p>';
-        echo 123 === '123';// сравнение типов данных
-        for ($i=0; $i<10; $i++)
+    <h1> <?= $title; ?></h1>
+
+    <?php
+        echo "<hr>";
+        for ($i=0; $i<count($array1);$i++)
         {
-            //echo '<p>';
-                echo $i;
-            //echo '<p>';
+            echo "$array1[$i]\t";
         }
-        echo '<p>';
-        if (true)
+        echo "<hr>";
+    ?>
+    <pre><?=
+        //var_dump($array1);
+        //var_dump($array3);
+        //print_r ($array3);
+        //print_r ($array1);
+        $array2[]=233;
+        print_r ($array2);
+        //unset($array2[2]);
+        //print_r($array2);
+        echo '<hr>';
+        foreach($array3 as $iterator)
         {
-            //const PI = 3.14; не можем объявить
-            define ('PI', '3.14');
-            echo PI;
+            echo "$iterator\t"; 
         }
-        echo '<br>';
-        define(PREFIX . '_1', '1');
-        define(PREFIX . '_2', '2');
-        define(PREFIX . '_3', '3');
-        echo OPTION_1;
-        echo '<br>';
-        $int = 1024;
-         echo $int;
-    ?>
-    <?PHP print_value('Test value', 1024)?>
-    <?PHP echo "5 != ", factorial(5)?>
-    <require>
-    <?php echo PHP_INT_SIZE; ?>
+        echo '<hr>';
+         foreach($array2 as $key =>$value)
+        {
+            echo "array2[$key]:\t$value;\n"; 
+            // echo $iterator;
+        }
+        ?>
+     </pre>
+     <pre>
+        <?= 
+            $distant_to_sun['Earth'];
+            print_r($distant_to_sun, true);
+            echo '<hr>';
+            //var_dump($array2D);
+            //print_r($array2D);
+            foreach($array2D as $iterator)
+            {
+                foreach($iterator as $iterator)
+                {
+                    echo "$iterator\t";
+                }
+                echo '<br>';
+            }
+            echo '<hr>';
+        ?>
+     </pre>
 
-    <?php echo PHP_FLOAT_MAX; ?>
-    <?php echo PHP_FLOAT_MIN; ?>
+     <?php
+        array_unshift($array1, 2);
+		array_unshift($array1, 1);
+		$array1[] = 340;
+		array_push($array1, 550);
+		print_array($array1);
+		$keys = array_keys($array1);// массив ключей
+		print_array($keys);
+		echo array_key_exists(5, $array1);
+		echo in_array(13.21, $array1);
 
-     string:  <?php echo strlen('Hello') ?>
-    <?php echo '<p>'?>
-    <?php echo '<hr>'?>
-    
-     <?php echo $heredoc_string; ?>
-    <?php echo '<p>'?><?php echo '<hr>'?>
-    <?php echo $nowdoc_string;?> 
-    <?php 
-        echo $escape_sequences;
-    ?>
-    <?PHP
-    // составные присваивания: 
-        $i=3;
-        $j=2;
-        $i=$j;
-        echo $i;
-        $i *=$i;
-        echo $i;
-        echo '<hr>';?>
-        <li>Операторы сравнения: <code>==, !=, >, <, >=, <=, <b>===, !==</b></code>
-            <li>Логические операторы: !, ||, &&</li>
-            <li>Побитовые операторы:
-            <code>
-                <ul>
-                    <li>~   NOT <?PHP echo ~5;?> </li>
-                    <li>|    OR <?PHP echo 5 | 3;?></li>
-                    <li>&   AND <?PHP echo 5 & 3?></li>
-                    <li>^   XOR</li>
-                    <li><<  Shift left</li>
-                    <li>>>  Shift right</li>
-                </ul>
-            </code>
-        </li>
+        array_pop($array1);
+		//array_pop($array1);
+		array_shift($array1);
+		array_shift($array1);
+		print_array($array1);
+		echo '<hr>';
+        $array0 = array_merge($array1, $array2);
+		print_array($array1);
+		print_array($array2);
+		print_array($array0);
+		echo '<hr>';
+     ?>
 
-        <!--Tpадиционная перегрузка» при вызове метода позволяет иметь несколько методов с одним и 
-        тем же именем, но с разным количеством и типами аргументов. Для объявления 
-        метода предоставляется возможность выразить отдельное/изолированное объявление для 
-        каждой перегруженной функции. этого определения обычно связана с статически типизированными 
-        языками программирования, которые выполняют проверку типов и/или проверку арности для выбора 
-        правильного объявления. PHP не является статически типизированным языком, он динамический и использует слабую типизацию.
-        -->
-    
 </body>
 </html>
